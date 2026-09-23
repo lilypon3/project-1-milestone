@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class InputToAnimator : MonoBehaviour
 {
     Animator animator;
+    int direction = 4; //1 right, 2 left, 3 up, 4 down
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -15,18 +16,45 @@ public class InputToAnimator : MonoBehaviour
     // Update is called once per frame
     void Update()
 {
+
+
+    if (Keyboard.current.zKey.wasPressedThisFrame && direction == 1)
+    {
+        animator.SetTrigger("attackRight");
+    }
+    if (Keyboard.current.zKey.wasPressedThisFrame && direction == 2)
+    {
+        animator.SetTrigger("attackLeft");
+    }
+    if (Keyboard.current.zKey.wasPressedThisFrame && direction == 3)
+    {
+        animator.SetTrigger("attackUp");
+    }
+    if (Keyboard.current.zKey.wasPressedThisFrame && direction == 4)
+    {
+        animator.SetTrigger("attackDown");
+    }
+
+
     float horizontal = 0;
     float vertical = 0;
 
-    if (Keyboard.current.leftArrowKey.isPressed)
+    if (Keyboard.current.leftArrowKey.isPressed) {
         horizontal = -1;
-    if (Keyboard.current.rightArrowKey.isPressed)
+        direction = 2;
+    }
+    if (Keyboard.current.rightArrowKey.isPressed) {
         horizontal = 1;
-
-    if (Keyboard.current.downArrowKey.isPressed && !(Mathf.Abs (horizontal) > 0.0f))
+        direction = 1;
+    }
+    if (Keyboard.current.downArrowKey.isPressed && !(Mathf.Abs (horizontal) > 0.0f)) {
         vertical = -1;
-    if (Keyboard.current.upArrowKey.isPressed && !(Mathf.Abs (horizontal) > 0.0f))
+        direction = 4;
+    }
+    if (Keyboard.current.upArrowKey.isPressed && !(Mathf.Abs (horizontal) > 0.0f)) {
         vertical = 1;
+        direction = 3;
+    }
 
     animator.SetFloat("horizontal_input", horizontal);
     animator.SetFloat("vertical_input", vertical);
