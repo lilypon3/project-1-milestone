@@ -3,7 +3,8 @@ guid: 24486e34597e94aa3aef1e8c29248368
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - rupee_collection_sound_clip: {fileID: 8300000, guid: d29dbd3c3b177e049b961db77281ee13, type: 3}
   executionOrder: 7
   icon: {instanceID: 0}
   userData: 

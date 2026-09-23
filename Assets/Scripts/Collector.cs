@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class Collector : MonoBehaviour
 {
+    public AudioClip rupee_collection_sound_clip;
     Inventory inventory;
 
     void Start()
@@ -27,6 +28,7 @@ public class Collector : MonoBehaviour
             }
 
             Destroy(object_collided_with);
+            AudioSource.PlayClipAtPoint(rupee_collection_sound_clip, Camera.main.transform.position);
         }
     }
 }
