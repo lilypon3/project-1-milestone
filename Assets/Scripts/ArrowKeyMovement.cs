@@ -20,20 +20,20 @@ public class ArrowKeyMovement : MonoBehaviour
     void FixedUpdate()
     {
         Vector2 current_input = GetInput ();
-        rb.linearVelocity = current_input * movement_speed;
+        //rb.linearVelocity = current_input * movement_speed;
+        transform.position = Vector3.MoveTowards (transform.position, movePoint.position, movement_speed * Time.deltaTime);
     }
 
     Vector2 GetInput()
     {
         float horizontal_input = 0;
         float vertical_input = 0;
-        transform.position = Vector3.MoveTowards (transform.position, movePoint.position, movement_speed * Time.deltaTime);
+        
 
         
         
         if (Keyboard.current.leftArrowKey.isPressed)
             horizontal_input = -1;
-
         if (Keyboard.current.rightArrowKey.isPressed)
             horizontal_input = 1;
         if (Keyboard.current.upArrowKey.isPressed && !(Mathf.Abs (horizontal_input) > 0.0f))
