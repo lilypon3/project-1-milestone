@@ -23,9 +23,9 @@ public class InputToAnimator : MonoBehaviour
     if (Keyboard.current.rightArrowKey.isPressed)
         horizontal = 1;
 
-    if (Keyboard.current.downArrowKey.isPressed)
+    if (Keyboard.current.downArrowKey.isPressed && !(Mathf.Abs (horizontal) > 0.0f))
         vertical = -1;
-    if (Keyboard.current.upArrowKey.isPressed)
+    if (Keyboard.current.upArrowKey.isPressed && !(Mathf.Abs (horizontal) > 0.0f))
         vertical = 1;
 
     animator.SetFloat("horizontal_input", horizontal);
