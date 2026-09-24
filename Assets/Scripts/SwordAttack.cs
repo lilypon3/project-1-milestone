@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class SwordAttack : MonoBehaviour
 {
@@ -7,8 +8,7 @@ public class SwordAttack : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Rigidbody2D rb = GetComponent<Rigidbody2D> ();
-
+        rb = GetComponent<Rigidbody2D> ();
     }
 
     // Update is called once per frame
