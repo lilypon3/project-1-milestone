@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class Collector : MonoBehaviour
 {
     public AudioClip rupee_collection_sound_clip;
+    public AudioClip heart_collection_sound_clip;
     Inventory inventory;
     Health health;
 
@@ -46,6 +47,7 @@ public class Collector : MonoBehaviour
             }
 
             Destroy(object_collided_with);
+            AudioSource.PlayClipAtPoint(heart_collection_sound_clip, Camera.main.transform.position);
         }
     }
 }

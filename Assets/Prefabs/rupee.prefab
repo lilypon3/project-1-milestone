@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 9124358330946740048}
   - component: {fileID: 8225268950490738773}
   - component: {fileID: 544883434388455782}
+  - component: {fileID: -1924842714671784629}
   m_Layer: 0
   m_Name: rupee
   m_TagString: rupee
@@ -139,3 +140,16 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.625, y: 1.0625}
   m_EdgeRadius: 0
+--- !u!114 &-1924842714671784629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4725830014646499422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b61f07968b6c048ec8547c15d9881ea8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Flasher
+  flash_interval: 0.15

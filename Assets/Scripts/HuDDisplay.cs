@@ -5,10 +5,11 @@ using System.Collections.Generic;
 using TMPro;
 
 
-public class RupeeDisplayer : MonoBehaviour
+public class HuDDisplay : MonoBehaviour
 {
 
     public Inventory inventory;
+    public Health health;
     TextMeshProUGUI text_component;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -20,9 +21,11 @@ public class RupeeDisplayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (inventory != null && text_component != null)
+        if (inventory != null && text_component != null && health != null)
         {
-            text_component.text = inventory.GetRupees().ToString();
+            string rupee_count_string = "Rupees: " + inventory.GetRupees().ToString();
+            string heart_count_string = "Hearts: " + health.current_health.ToString();
+            text_component.text = rupee_count_string + "\n" + heart_count_string;
         }
         
     }
