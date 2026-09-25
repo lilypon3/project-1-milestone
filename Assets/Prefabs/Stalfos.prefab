@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 492769132832214642}
   - component: {fileID: 2078720316361570733}
   - component: {fileID: 836779158711524911}
+  - component: {fileID: -3927692759310544322}
   m_Layer: 0
   m_Name: Stalfos
   m_TagString: Untagged
@@ -210,6 +211,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de0263ce649ae40338636c729dfa8f0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
-  max_health: 6
-  current_health: 6
+  max_health: 3
+  current_health: 3
   invincibility_time: 1
+--- !u!114 &-3927692759310544322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7006007479517113667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f598bef7a53446ec9e8b21c6f06cbde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DropTable
+  rupee_prefab: {fileID: 4725830014646499422, guid: 5b29cc8e721234d8e940754bece95a4d, type: 3}
+  heart_prefab: {fileID: 6271205611578947555, guid: 9cd334c0fa38344c5835ef4926c4e94b, type: 3}
+  bomb_prefab: {fileID: 0}
+  drop_chance: 0.5
