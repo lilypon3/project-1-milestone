@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 5656929761769266673}
   - component: {fileID: 5087047277116108518}
   - component: {fileID: 492769132832214642}
+  - component: {fileID: 2078720316361570733}
+  - component: {fileID: 836779158711524911}
   m_Layer: 0
   m_Name: Stalfos
   m_TagString: Untagged
@@ -102,7 +104,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7006007479517113667}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b44ca19fa506e1a478fead44c008b1e7, type: 3}
   m_Name: 
@@ -111,7 +113,6 @@ MonoBehaviour:
   tileSize: 1
   chanceToPause: 0.25
   pauseDuration: 0.4
-  stuckTimeout: 1
 --- !u!50 &5087047277116108518
 Rigidbody2D:
   serializedVersion: 5
@@ -185,3 +186,30 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 11.69, y: 12.42}
   m_EdgeRadius: 0
+--- !u!114 &2078720316361570733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7006007479517113667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0fac74e648b0d940878eaaf0d46f20b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AnimateStalfos
+--- !u!114 &836779158711524911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7006007479517113667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de0263ce649ae40338636c729dfa8f0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+  max_health: 6
+  current_health: 6
+  invincibility_time: 1
