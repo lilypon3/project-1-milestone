@@ -48,6 +48,7 @@ public class Health : MonoBehaviour
     void Die()
     {
         Debug.Log("Player has died!");
+        Destroy(gameObject);
         //TODO: add game over logic
     }
 

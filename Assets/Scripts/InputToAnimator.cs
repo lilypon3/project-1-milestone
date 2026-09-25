@@ -17,23 +17,24 @@ public class InputToAnimator : MonoBehaviour
     void Update()
 {
 
-
-    if (Keyboard.current.zKey.wasPressedThisFrame && direction == 1)
+/*
+    if (Keyboard.current.zKey.isPressed && direction == 1)
     {
         animator.SetTrigger("attackRight");
     }
-    if (Keyboard.current.zKey.wasPressedThisFrame && direction == 2)
+    if (Keyboard.current.zKey.isPressed && direction == 2)
     {
         animator.SetTrigger("attackLeft");
     }
-    if (Keyboard.current.zKey.wasPressedThisFrame && direction == 3)
+    if (Keyboard.current.zKey.isPressed && direction == 3)
     {
         animator.SetTrigger("attackUp");
     }
-    if (Keyboard.current.zKey.wasPressedThisFrame && direction == 4)
+    if (Keyboard.current.zKey.isPressed && direction == 4)
     {
         animator.SetTrigger("attackDown");
     }
+    */
 
 
     float horizontal = 0;
