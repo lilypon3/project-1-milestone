@@ -230,3 +230,4 @@ MonoBehaviour:
   heart_prefab: {fileID: 6271205611578947555, guid: 9cd334c0fa38344c5835ef4926c4e94b, type: 3}
   bomb_prefab: {fileID: 0}
   drop_chance: 0.5
+  health: {fileID: 0}
