@@ -24,7 +24,7 @@ public class AttackArea : MonoBehaviour
         if (colldier.GetComponent<Health>() != null)
         {
             Health health = colldier.GetComponent<Health>();
-            health.TakeDamage(damage);
+            health.TakeDamage(damage, gridMovement.LastMoveDir);
         }
     }
 
@@ -32,19 +32,19 @@ public class AttackArea : MonoBehaviour
     {
         if (gridMovement.LastMoveDir == Vector2.right) // right
         {
-            transform.localPosition = new Vector3(1, 0, 0);
+            transform.localPosition = new Vector3(0.851f, 0, 0);
         }
         else if (gridMovement.LastMoveDir == Vector2.left) // left
         {
-            transform.localPosition = new Vector3(-1, 0, 0);
+            transform.localPosition = new Vector3(-0.851f, 0, 0);
         }
         else if (gridMovement.LastMoveDir == Vector2.up) // up
         {
-            transform.localPosition = new Vector3(0, 1, 0);
+            transform.localPosition = new Vector3(0, 0.851f, 0);
         }
         else if (gridMovement.LastMoveDir == Vector2.down) // down
         {
-            transform.localPosition = new Vector3(0, -1, 0);
+            transform.localPosition = new Vector3(0, -0.851f, 0);
         }
     }
 }

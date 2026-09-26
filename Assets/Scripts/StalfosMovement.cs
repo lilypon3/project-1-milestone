@@ -72,12 +72,9 @@ public class StalfosMovement : MonoBehaviour
         }
     }
 
-    // Colliding with a wall is what actually tells us we're blocked -
-    // waiting for movement to "not happen" is unreliable, since Unity's
-    // solver usually still nudges the body a tiny bit each frame even when
-    // pinned against something. React to the collision itself instead.
+    // Handle the initial impact once. Re-snapping and rerolling every physics
+    // step while contact persists fights Rigidbody2D's collision solver.
     void OnCollisionEnter2D(Collision2D collision) => HandleBlocked(collision);
-    void OnCollisionStay2D(Collision2D collision) => HandleBlocked(collision);
 
     private void HandleBlocked(Collision2D collision)
     {
