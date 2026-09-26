@@ -8,6 +8,8 @@ public class CheatManager : MonoBehaviour
     public Inventory inventory; 
     public Health health;
 
+    public WeaponController weaponController;
+
     void Update()
     {
         if (Keyboard.current.digit1Key.wasPressedThisFrame)
@@ -30,6 +32,11 @@ public class CheatManager : MonoBehaviour
             inventory.AddKey(999);
             // AddBomb once bombs exist
         }
-        // Unlock current-deliverable weapons here once WeaponController exists
+        
+        if (weaponController != null)
+        {
+            IWeapon alt = weaponController.GetCurrentAltWeapon();
+            if (alt != null) alt.IsUnlocked = true; // unlocks bow for p1_milestone
+        }
     }
 }

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class BowAttack : MonoBehaviour
+public class BowAttack : MonoBehaviour, IWeapon
 {
     private bool isAttacking = false;
     private float timeToAttack = 0.25f;
@@ -13,6 +13,8 @@ public class BowAttack : MonoBehaviour
     public Transform launchOffset;
     public Health health;
     public Inventory inventory;
+
+    public bool IsUnlocked { get; set; } = false; //must be picked up in-game, or cheated in
 
     Rigidbody2D rb;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -30,17 +32,9 @@ public class BowAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Keyboard.current.xKey.wasPressedThisFrame)
+
+        if (isAttacking)
         {
-            if (inventory.GetRupees() < 1)
-            {
-                return;
-            }
-            inventory.RemoveRupee(1);
-            Attack();
-            //rb.AddForce(new Vector2(0, 5), ForceMode2D.Impulse);
-        }
-        if (isAttacking) {
             timer += Time.deltaTime;
             if (timer >= timeToAttack)
             {
@@ -48,27 +42,28 @@ public class BowAttack : MonoBehaviour
                 gridMovement.moveSpeed = startingMoveSpeed;
                 timer = 0f;
             }
+    
         }
 
-    
     }
 
-    private void Attack()
+    public void Attack()
     {
         if (isAttacking) return;
+        if (inventory.GetRupees() < 1) return;
+
+        inventory.RemoveRupee(1);
 
         if (health.current_health == 3)
         {
             ProjectileBehavior projectile = Instantiate(projectilePrefab, launchOffset.position, transform.rotation);
             projectile.Init(gridMovement.LastMoveDir, GetComponent<Collider2D>());
         }
-        
+
         isAttacking = true;
         timer = 0f;
         gridMovement.moveSpeed = 0f;
        
-       
     }
 
-    
 }

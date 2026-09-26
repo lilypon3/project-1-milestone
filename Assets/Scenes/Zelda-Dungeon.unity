@@ -85519,8 +85519,8 @@ GameObject:
   - component: {fileID: 699725503}
   - component: {fileID: 699725504}
   - component: {fileID: 699725505}
-  - component: {fileID: 699725506}
   - component: {fileID: 699725507}
+  - component: {fileID: 699725508}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -85800,18 +85800,6 @@ MonoBehaviour:
   attackSpriteLeft: {fileID: 21300074, guid: 45afd34443b96473598b76e2b1778b4e, type: 3}
   attackSpriteRight: {fileID: 21300078, guid: 45afd34443b96473598b76e2b1778b4e, type: 3}
   attackSpriteUp: {fileID: 21300076, guid: 45afd34443b96473598b76e2b1778b4e, type: 3}
---- !u!114 &699725506
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 699725492}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07c0cab7362884d4ab3acf162e5acd9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
 --- !u!114 &699725507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85828,6 +85816,21 @@ MonoBehaviour:
   launchOffset: {fileID: 104762877}
   health: {fileID: 0}
   inventory: {fileID: 0}
+--- !u!114 &699725508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 699725492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fdf0012204ad4451b45f343e91c7aa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponController
+  standard_weapon: {fileID: 699725503}
+  alt_weapons:
+  - {fileID: 699725507}
 --- !u!4 &700065457 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8115149952237951590, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
@@ -94017,17 +94020,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4801f4197d71d494e8a4397b71ba2a41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  spriteRenderer: {fileID: 776519803}
-  attackSprite: {fileID: 21300234, guid: 45afd34443b96473598b76e2b1778b4e, type: 3}
-  attackSpriteLeft: {fileID: 21300236, guid: 45afd34443b96473598b76e2b1778b4e, type: 3}
-  attackSpriteRight: {fileID: 21300240, guid: 45afd34443b96473598b76e2b1778b4e, type: 3}
-  attackSpriteUp: {fileID: 21300238, guid: 45afd34443b96473598b76e2b1778b4e, type: 3}
-  myAnimator: {fileID: 0}
-  inputToAnimator: {fileID: 0}
-  gridMovement: {fileID: 0}
-  defaultSprite: {fileID: 0}
-  animatorWasEnabled: 0
-  inputToAnimatorWasEnabled: 0
 --- !u!61 &776519805
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -102962,8 +102954,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -114937,21 +114929,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0fac74e648b0d940878eaaf0d46f20b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
---- !u!114 &951400201
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 951400193}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de0263ce649ae40338636c729dfa8f0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Health
-  max_health: 6
-  current_health: 0
-  invincibility_time: 1
 --- !u!61 &951400204
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -115011,6 +114988,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   targetAlpha: 0.5
+--- !u!114 &951400207 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 836779158711524911, guid: 2bf50d13ff0c52a4294591d1c7e706b2, type: 3}
+  m_PrefabInstance: {fileID: 4693885027312868583}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 951400193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de0263ce649ae40338636c729dfa8f0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
 --- !u!4 &951553439 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8115149952237951590, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
@@ -176359,6 +176347,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   inventory: {fileID: 699725499}
   health: {fileID: 699725504}
+  weaponController: {fileID: 699725508}
 --- !u!1001 &1440582783
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -219869,17 +219858,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4801f4197d71d494e8a4397b71ba2a41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  spriteRenderer: {fileID: 1802676499}
-  attackSprite: {fileID: 21300234, guid: 45afd34443b96473598b76e2b1778b4e, type: 3}
-  attackSpriteLeft: {fileID: 21300236, guid: 45afd34443b96473598b76e2b1778b4e, type: 3}
-  attackSpriteRight: {fileID: 21300240, guid: 45afd34443b96473598b76e2b1778b4e, type: 3}
-  attackSpriteUp: {fileID: 21300238, guid: 45afd34443b96473598b76e2b1778b4e, type: 3}
-  myAnimator: {fileID: 0}
-  inputToAnimator: {fileID: 0}
-  gridMovement: {fileID: 0}
-  defaultSprite: {fileID: 0}
-  animatorWasEnabled: 0
-  inputToAnimatorWasEnabled: 0
 --- !u!212 &1802676499
 SpriteRenderer:
   serializedVersion: 3
@@ -263028,6 +263006,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3927692759310544322, guid: 2bf50d13ff0c52a4294591d1c7e706b2, type: 3}
+      propertyPath: health
+      value: 
+      objectReference: {fileID: 951400207}
     - target: {fileID: 492769132832214642, guid: 2bf50d13ff0c52a4294591d1c7e706b2, type: 3}
       propertyPath: m_IsTrigger
       value: 1
@@ -263098,7 +263080,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7006007479517113667, guid: 2bf50d13ff0c52a4294591d1c7e706b2, type: 3}
       propertyPath: m_Name
-      value: Stalfos
+      value: Staflfos
       objectReference: {fileID: 0}
     - target: {fileID: 7006007479517113667, guid: 2bf50d13ff0c52a4294591d1c7e706b2, type: 3}
       propertyPath: m_Layer
@@ -263111,9 +263093,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7006007479517113667, guid: 2bf50d13ff0c52a4294591d1c7e706b2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 951400199}
-    - targetCorrespondingSourceObject: {fileID: 7006007479517113667, guid: 2bf50d13ff0c52a4294591d1c7e706b2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 951400201}
     - targetCorrespondingSourceObject: {fileID: 7006007479517113667, guid: 2bf50d13ff0c52a4294591d1c7e706b2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 951400204}

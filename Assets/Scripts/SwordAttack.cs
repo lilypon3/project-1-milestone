@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class SwordAttack : MonoBehaviour
+public class SwordAttack : MonoBehaviour, IWeapon
 {
     private GameObject AttackArea = default;
     private bool isAttacking = false;
@@ -13,6 +13,8 @@ public class SwordAttack : MonoBehaviour
     public ProjectileBehavior projectilePrefab; 
     public Transform launchOffset;
     public Health health;
+
+    public bool IsUnlocked { get; set; } = true; //sword always available, no lock
 
     Rigidbody2D rb;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -29,11 +31,11 @@ public class SwordAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Keyboard.current.zKey.wasPressedThisFrame)
-        {
-            Attack();
-            //rb.AddForce(new Vector2(0, 5), ForceMode2D.Impulse);
-        }
+        // if (Keyboard.current.zKey.wasPressedThisFrame)
+        // {
+        //     Attack();
+        //     //rb.AddForce(new Vector2(0, 5), ForceMode2D.Impulse);
+        // }
         if (isAttacking) {
             timer += Time.deltaTime;
             if (timer >= timeToAttack)
@@ -49,7 +51,7 @@ public class SwordAttack : MonoBehaviour
     
     }
 
-    private void Attack()
+    public void Attack()
     {
         if (isAttacking) return;
 
