@@ -5,6 +5,7 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
 
+    int key_count = 0;
     int rupee_count = 5;
 
 
@@ -25,6 +26,21 @@ public class Inventory : MonoBehaviour
     public int GetRupees()
     {
         return rupee_count;
+    }
+
+    public void AddKey(int num_keys)
+    {
+        key_count += num_keys;
+    }
+
+    public int GetKeys()
+    {
+        return key_count;
+    }
+
+    public void UseKey()
+    {
+        key_count = Mathf.Max(0, key_count - 1);
     }
 
 

@@ -6,6 +6,7 @@ public class Collector : MonoBehaviour
 {
     public AudioClip rupee_collection_sound_clip;
     public AudioClip heart_collection_sound_clip;
+    public AudioClip key_collection_sound_clip;
     Inventory inventory;
     Health health;
 
@@ -22,7 +23,7 @@ public class Collector : MonoBehaviour
             Debug.LogWarning("WARNING: No health component found on gameobject with collector. This means that the collector will not be able to collect hearts.");
         }
     }
-    void OnTriggerEnter(Collider coll)
+    void OnTriggerEnter2D(Collider2D coll)
     {
         GameObject object_collided_with = coll.gameObject;
 
@@ -48,6 +49,14 @@ public class Collector : MonoBehaviour
 
             Destroy(object_collided_with);
             AudioSource.PlayClipAtPoint(heart_collection_sound_clip, Camera.main.transform.position);
+        }
+
+        else if (object_collided_with.tag == "key")
+        {
+            Debug.Log("Collected key!");
+            if (inventory != null) inventory.AddKey(1);
+            Destroy(object_collided_with);
+            AudioSource.PlayClipAtPoint(key_collection_sound_clip, Camera.main.transform.position);
         }
     }
 }

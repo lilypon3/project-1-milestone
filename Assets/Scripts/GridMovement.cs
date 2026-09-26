@@ -54,14 +54,14 @@ public class GridMovement : MonoBehaviour
 
         Vector2 dir = Vector2.zero;
 
-        if (kb.leftArrowKey.isPressed) dir.x = -1f;
-        else if (kb.rightArrowKey.isPressed) dir.x = 1f;
+        if (kb.leftArrowKey.isPressed || kb.aKey.isPressed) dir.x = -1f;
+        else if (kb.rightArrowKey.isPressed || kb.dKey.isPressed) dir.x = 1f;
 
         // No diagonal
         if (dir.x == 0f)
         {
-            if (kb.upArrowKey.isPressed) dir.y = 1f;
-            else if (kb.downArrowKey.isPressed) dir.y = -1f;
+            if (kb.upArrowKey.isPressed || kb.wKey.isPressed) dir.y = 1f;
+            else if (kb.downArrowKey.isPressed || kb.sKey.isPressed) dir.y = -1f;
         }
 
         return dir;

@@ -6,7 +6,7 @@ TagManager:
   tags:
   - rupee
   - heart
-  - Wall
+  - key
   layers:
   - Default
   - TransparentFX
