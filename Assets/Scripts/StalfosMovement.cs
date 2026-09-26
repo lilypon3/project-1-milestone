@@ -49,6 +49,7 @@ public class StalfosMovement : MonoBehaviour
         targetPosition = rb.position;
 
         PickNewDirection();
+        rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
     }
 
     void FixedUpdate()
@@ -146,5 +147,17 @@ public class StalfosMovement : MonoBehaviour
         Vector2 pos = rb.position;
         return Mathf.Approximately(Mathf.Repeat(pos.x, tileSize), 0f)
             && Mathf.Approximately(Mathf.Repeat(pos.y, tileSize), 0f);
+    }
+
+    public void SetKnockedBack(bool knocked_back)
+    {
+        enabled = !knocked_back; // disabling the script stops FixedUpdate from running at all
+    }
+
+    public void ResyncAfterKnockback()
+    {
+        rb.position = SnapToGrid(rb.position);
+        targetPosition = rb.position;
+        PickNewDirection();
     }
 }

@@ -8,14 +8,15 @@ public class PlayerHitReaction : MonoBehaviour
     public float flash_interval = 0.08f;
 
     Health health;
-    Rigidbody rb; 
-    MonoBehaviour GridMovement; //player movement script 
+    Rigidbody2D rb; 
+    GridMovement gridMovement;
     SpriteRenderer sprite_renderer;
 
     void Start()
     {
         health = GetComponent<Health>();
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody2D>();
+        gridMovement = GetComponent<GridMovement>();
         sprite_renderer = GetComponentInChildren<SpriteRenderer>();
         if (health != null) health.onDamaged += HandleDamaged;
     }
@@ -25,10 +26,10 @@ public class PlayerHitReaction : MonoBehaviour
         StartCoroutine(HitStunRoutine(knockback_direction));
     }
 
-    IEnumerator HitStunRoutine(Vector2 direction)
+   IEnumerator HitStunRoutine(Vector2 direction)
     {
-        if (GridMovement != null) GridMovement.enabled = false;
-        if (rb != null) rb.AddForce(direction * knockback_force, ForceMode.Impulse);
+        if (gridMovement != null) gridMovement.enabled = false;
+        if (rb != null) rb.AddForce(direction * knockback_force, ForceMode2D.Impulse);
 
         float elapsed = 0f;
         while (elapsed < stun_duration)
@@ -39,6 +40,8 @@ public class PlayerHitReaction : MonoBehaviour
         }
         if (sprite_renderer != null) sprite_renderer.enabled = true;
 
-        if (GridMovement != null) GridMovement.enabled = true;
+        if (rb != null) rb.linearVelocity = Vector2.zero; // <-- stop the coasting
+
+        if (gridMovement != null) gridMovement.enabled = true;
     }
 }

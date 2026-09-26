@@ -36,6 +36,7 @@ public class GridMovement : MonoBehaviour
         // physics engine, so you stop wherever you bump something instead
         // of needing your own collision checks.
         rb.bodyType = RigidbodyType2D.Dynamic;
+        rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
     }
 
     void FixedUpdate()
