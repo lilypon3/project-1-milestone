@@ -6602,7 +6602,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2456104955304564812, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_Name
-      value: Tile_WALL
+      value: Locked_Door_Up
       objectReference: {fileID: 0}
     - target: {fileID: 3927478676184684712, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_Sprite
@@ -11319,6 +11319,149 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3868424468143826012, guid: 10e7f569f54a6466685569499cd0ac3e, type: 3}
   m_PrefabInstance: {fileID: 98883983}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &98980775
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 98980779}
+  - component: {fileID: 98980777}
+  - component: {fileID: 98980776}
+  - component: {fileID: 98980778}
+  m_Layer: 0
+  m_Name: Door
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!61 &98980776
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 98980775}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.79, y: 0.91}
+  m_EdgeRadius: 0
+--- !u!61 &98980777
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 98980775}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.79, y: 0.91}
+  m_EdgeRadius: 0
+--- !u!114 &98980778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 98980775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d79f3d35711a412585faf63a83ed31c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
+  direction: 3
+  is_locked: 0
+  room_transition: {fileID: 1192337001}
+  solid_blocker: {fileID: 98980777}
+  trigger_collider: {fileID: 98980776}
+--- !u!4 &98980779
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 98980775}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 39.5, y: 11.82, z: 0}
+  m_LocalScale: {x: 0.79, y: 0.91, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &99492130
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12745,6 +12888,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8115149952237951590, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
   m_PrefabInstance: {fileID: 1563829862}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &110900778
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5976258193183328105, guid: 6e7d753c27e7b40cc925968eb84271d4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 44.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 5976258193183328105, guid: 6e7d753c27e7b40cc925968eb84271d4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 5976258193183328105, guid: 6e7d753c27e7b40cc925968eb84271d4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5976258193183328105, guid: 6e7d753c27e7b40cc925968eb84271d4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5976258193183328105, guid: 6e7d753c27e7b40cc925968eb84271d4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5976258193183328105, guid: 6e7d753c27e7b40cc925968eb84271d4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5976258193183328105, guid: 6e7d753c27e7b40cc925968eb84271d4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5976258193183328105, guid: 6e7d753c27e7b40cc925968eb84271d4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5976258193183328105, guid: 6e7d753c27e7b40cc925968eb84271d4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5976258193183328105, guid: 6e7d753c27e7b40cc925968eb84271d4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6795276456011945510, guid: 6e7d753c27e7b40cc925968eb84271d4, type: 3}
+      propertyPath: m_Name
+      value: key
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6e7d753c27e7b40cc925968eb84271d4, type: 3}
 --- !u!1001 &111199623
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -71458,6 +71658,28 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+--- !u!1 &599220776 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2456104955304564812, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+  m_PrefabInstance: {fileID: 1900256544}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &599220777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599220776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d79f3d35711a412585faf63a83ed31c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
+  direction: 1
+  is_locked: 0
+  room_transition: {fileID: 1192337001}
+  solid_blocker: {fileID: 0}
+  trigger_collider: {fileID: 0}
 --- !u!1001 &599385512
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -85271,7 +85493,6 @@ GameObject:
   - component: {fileID: 699725494}
   - component: {fileID: 699725493}
   - component: {fileID: 699725496}
-  - component: {fileID: 699725495}
   - component: {fileID: 699725497}
   - component: {fileID: 699725498}
   - component: {fileID: 699725499}
@@ -85283,7 +85504,7 @@ GameObject:
   - component: {fileID: 699725505}
   m_Layer: 6
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -85365,21 +85586,6 @@ Transform:
   - {fileID: 104762877}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &699725495
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 699725492}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 112ce026c2fe3534a8ceb8261403110b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ArrowKeyMovement
-  rb: {fileID: 0}
-  movement_speed: 4
-  movePoint: {fileID: 0}
 --- !u!50 &699725496
 Rigidbody2D:
   serializedVersion: 5
@@ -85465,8 +85671,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24486e34597e94aa3aef1e8c29248368, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  rupee_collection_sound_clip: {fileID: 0}
-  heart_collection_sound_clip: {fileID: 0}
+  rupee_collection_sound_clip: {fileID: 8300000, guid: d29dbd3c3b177e049b961db77281ee13, type: 3}
+  heart_collection_sound_clip: {fileID: 8300000, guid: b4c4d55746209ad43af79d27809638b5, type: 3}
+  key_collection_sound_clip: {fileID: 8300000, guid: 23941d859ea9f9e49ab3f3c0faae4c76, type: 3}
 --- !u!114 &699725499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105256,6 +105463,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8115149952237951590, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
   m_PrefabInstance: {fileID: 1652804596}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &878713415 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2456104955304564812, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+  m_PrefabInstance: {fileID: 988521573}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &879063667
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -119486,6 +119698,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 122129541}
     m_Modifications:
     - target: {fileID: -443677895104134195, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -443677895104134195, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
       value: 0.5
       objectReference: {fileID: 0}
@@ -119515,7 +119731,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2456104955304564812, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_Name
-      value: Tile_WALL
+      value: Right_Door
       objectReference: {fileID: 0}
     - target: {fileID: 3927478676184684712, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_Sprite
@@ -119568,7 +119784,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2456104955304564812, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1606698039}
   m_SourcePrefab: {fileID: 100100000, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
 --- !u!1001 &989078333
 PrefabInstance:
@@ -125091,6 +125310,149 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8115149952237951590, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
   m_PrefabInstance: {fileID: 1835734300}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1022740878
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1022740882}
+  - component: {fileID: 1022740881}
+  - component: {fileID: 1022740880}
+  - component: {fileID: 1022740879}
+  m_Layer: 0
+  m_Name: Locked Door
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1022740879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1022740878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d79f3d35711a412585faf63a83ed31c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
+  direction: 2
+  is_locked: 1
+  room_transition: {fileID: 1192337001}
+  solid_blocker: {fileID: 1022740881}
+  trigger_collider: {fileID: 1022740880}
+--- !u!61 &1022740880
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1022740878}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.79, y: 0.91}
+  m_EdgeRadius: 0
+--- !u!61 &1022740881
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1022740878}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.79, y: 0.91}
+  m_EdgeRadius: 0
+--- !u!4 &1022740882
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1022740878}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 39.51, y: 8.98, z: 0}
+  m_LocalScale: {x: 0.79, y: 0.91, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1022857098
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -134242,6 +134604,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 313571284}
     m_Modifications:
     - target: {fileID: -443677895104134195, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -443677895104134195, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
       value: 0.5
       objectReference: {fileID: 0}
@@ -134271,7 +134637,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2456104955304564812, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_Name
-      value: Tile_WALL
+      value: Right_Door
       objectReference: {fileID: 0}
     - target: {fileID: 3927478676184684712, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_Sprite
@@ -134324,7 +134690,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2456104955304564812, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2075713995}
   m_SourcePrefab: {fileID: 100100000, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
 --- !u!4 &1115044588 stripped
 Transform:
@@ -143806,7 +144175,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1192336995}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8f6606002c9494eda8363efda17a9eb1, type: 3}
   m_Name: 
@@ -143833,7 +144202,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1192336995}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0d6260dd3243b4fcaaf4bb59927cc104, type: 3}
   m_Name: 
@@ -163096,6 +163465,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+--- !u!1 &1337159610 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2456104955304564812, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+  m_PrefabInstance: {fileID: 1741133021}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1337851710
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -176847,7 +177221,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5978044527373150397, guid: 10e7f569f54a6466685569499cd0ac3e, type: 3}
       propertyPath: m_Name
-      value: Tile_NONE
+      value: Bottom_Door_2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -183640,6 +184014,23 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8115149952237951590, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
   m_PrefabInstance: {fileID: 1741133021}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1508942522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1337159610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d79f3d35711a412585faf63a83ed31c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
+  direction: 1
+  is_locked: 0
+  room_transition: {fileID: 1192337001}
+  solid_blocker: {fileID: 0}
+  trigger_collider: {fileID: 0}
 --- !u!4 &1509772819 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8115149952237951590, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
@@ -196129,6 +196520,23 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8115149952237951590, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
   m_PrefabInstance: {fileID: 988521573}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1606698039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 878713415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d79f3d35711a412585faf63a83ed31c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
+  direction: 0
+  is_locked: 0
+  room_transition: {fileID: 1192337001}
+  solid_blocker: {fileID: 0}
+  trigger_collider: {fileID: 0}
 --- !u!4 &1607178126 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8115149952237951590, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
@@ -211467,6 +211875,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1878007130}
     m_Modifications:
     - target: {fileID: -443677895104134195, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -443677895104134195, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
       value: 0.5
       objectReference: {fileID: 0}
@@ -211496,7 +211908,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2456104955304564812, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_Name
-      value: Tile_WALL
+      value: Left_Door
       objectReference: {fileID: 0}
     - target: {fileID: 3927478676184684712, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_Sprite
@@ -211549,7 +211961,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2456104955304564812, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1508942522}
   m_SourcePrefab: {fileID: 100100000, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
 --- !u!1001 &1741751686
 PrefabInstance:
@@ -231780,6 +232195,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 313571284}
     m_Modifications:
     - target: {fileID: -443677895104134195, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -443677895104134195, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
       value: 0.5
       objectReference: {fileID: 0}
@@ -231809,7 +232228,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2456104955304564812, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_Name
-      value: Tile_WALL
+      value: Left_Door
       objectReference: {fileID: 0}
     - target: {fileID: 3927478676184684712, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_Sprite
@@ -231862,7 +232281,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2456104955304564812, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 599220777}
   m_SourcePrefab: {fileID: 100100000, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
 --- !u!1001 &1900444295
 PrefabInstance:
@@ -233256,7 +233678,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2456104955304564812, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_Name
-      value: Tile_WALL
+      value: Locked_Door_Up_2
       objectReference: {fileID: 0}
     - target: {fileID: 3927478676184684712, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_Sprite
@@ -253120,6 +253542,28 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8115149952237951590, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
   m_PrefabInstance: {fileID: 735118869}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2075713992 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2456104955304564812, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+  m_PrefabInstance: {fileID: 1114991369}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2075713995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2075713992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d79f3d35711a412585faf63a83ed31c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
+  direction: 0
+  is_locked: 0
+  room_transition: {fileID: 1192337001}
+  solid_blocker: {fileID: 0}
+  trigger_collider: {fileID: 0}
 --- !u!1001 &2075854064
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -262219,3 +262663,6 @@ SceneRoots:
   - {fileID: 4693885027312868583}
   - {fileID: 931315776}
   - {fileID: 7109363147090714233}
+  - {fileID: 110900778}
+  - {fileID: 1022740882}
+  - {fileID: 98980779}
