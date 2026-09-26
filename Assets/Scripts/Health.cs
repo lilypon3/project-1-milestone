@@ -22,7 +22,7 @@ public class Health : MonoBehaviour
 
     public void TakeDamage (int amount, Vector2 knockback_direction)
     {
-        if (is_invincible) return;
+        if (is_invincible || CheatManager.god_mode) return;
 
         current_health -= amount;
         current_health = Mathf.Clamp(current_health, 0, max_health);

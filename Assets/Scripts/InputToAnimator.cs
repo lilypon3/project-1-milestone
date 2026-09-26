@@ -40,19 +40,19 @@ public class InputToAnimator : MonoBehaviour
     float horizontal = 0;
     float vertical = 0;
 
-    if (Keyboard.current.leftArrowKey.isPressed) {
+    if (Keyboard.current.leftArrowKey.isPressed || Keyboard.current.aKey.isPressed) {
         horizontal = -1;
         direction = 2;
     }
-    if (Keyboard.current.rightArrowKey.isPressed) {
+    if (Keyboard.current.rightArrowKey.isPressed || Keyboard.current.dKey.isPressed) {
         horizontal = 1;
         direction = 1;
     }
-    if (Keyboard.current.downArrowKey.isPressed && !(Mathf.Abs (horizontal) > 0.0f)) {
+    if ((Keyboard.current.downArrowKey.isPressed || Keyboard.current.sKey.isPressed) && !(Mathf.Abs (horizontal) > 0.0f)) {
         vertical = -1;
         direction = 4;
     }
-    if (Keyboard.current.upArrowKey.isPressed && !(Mathf.Abs (horizontal) > 0.0f)) {
+    if ((Keyboard.current.upArrowKey.isPressed || Keyboard.current.wKey.isPressed) && !(Mathf.Abs (horizontal) > 0.0f)) {
         vertical = 1;
         direction = 3;
     }
