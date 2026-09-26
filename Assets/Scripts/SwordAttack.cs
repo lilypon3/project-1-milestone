@@ -52,10 +52,13 @@ public class SwordAttack : MonoBehaviour
     private void Attack()
     {
         if (isAttacking) return;
+
         if (health.current_health == 3)
         {
-            Instantiate(projectilePrefab, launchOffset.position, transform.rotation);
+            ProjectileBehavior projectile = Instantiate(projectilePrefab, launchOffset.position, transform.rotation);
+            projectile.Init(gridMovement.LastMoveDir, GetComponent<Collider2D>());
         }
+        
         isAttacking = true;
         timer = 0f;
         gridMovement.moveSpeed = 0f;

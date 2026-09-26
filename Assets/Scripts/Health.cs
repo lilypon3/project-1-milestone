@@ -26,6 +26,7 @@ public class Health : MonoBehaviour
 
         current_health -= amount;
         current_health = Mathf.Clamp(current_health, 0, max_health);
+        //MakeSemiTransparent();
 
         StartCoroutine(InvincibilityCoroutine());
         onDamaged?.Invoke(knockback_direction);

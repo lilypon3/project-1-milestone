@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class AttackArea : MonoBehaviour
 {
-    private int damage = 3;
+    private int damage = 1;
     private GridMovement gridMovement;
     
     
