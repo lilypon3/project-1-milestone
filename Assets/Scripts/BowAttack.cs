@@ -54,11 +54,10 @@ public class BowAttack : MonoBehaviour, IWeapon
 
         inventory.RemoveRupee(1);
 
-        if (health.current_health == 3)
-        {
-            ProjectileBehavior projectile = Instantiate(projectilePrefab, launchOffset.position, transform.rotation);
-            projectile.Init(gridMovement.LastMoveDir, GetComponent<Collider2D>());
-        }
+       
+        ProjectileBehavior projectile = Instantiate(projectilePrefab, launchOffset.position, transform.rotation);
+        projectile.Init(gridMovement.LastMoveDir, GetComponent<Collider2D>());
+        
 
         isAttacking = true;
         timer = 0f;
