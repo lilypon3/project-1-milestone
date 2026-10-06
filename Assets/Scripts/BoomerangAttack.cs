@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class BoomerangAttack : MonoBehaviour, IWeapon
 {
@@ -50,10 +51,36 @@ public class BoomerangAttack : MonoBehaviour, IWeapon
         timer = 0f;
         gridMovement.moveSpeed = 0f;
         BoomerangBehavior boomerang = Instantiate(boomerangPrefab, launchOffset.position, transform.rotation);
-        boomerang.Init(gridMovement.LastMoveDir, GetComponent<Collider2D>());
+        Vector2 diagonalDirection = GetDiagonalDirection();
+        Vector2 travelDirection = diagonalDirection == Vector2.zero
+            ? gridMovement.LastMoveDir
+            : diagonalDirection;
+        boomerang.Init(travelDirection, GetComponent<Collider2D>());
         
             //boomerangBehavior.Init(travelDirection, GetComponent<Collider2D>());
         
         
+    }
+
+    private Vector2 GetDiagonalDirection()
+    {
+        Keyboard keyboard = Keyboard.current;
+        if (keyboard == null) return Vector2.zero;
+
+        float horizontal = 0f;
+        if (keyboard.leftArrowKey.isPressed || keyboard.aKey.isPressed)
+            horizontal = -1f;
+        else if (keyboard.rightArrowKey.isPressed || keyboard.dKey.isPressed)
+            horizontal = 1f;
+
+        float vertical = 0f;
+        if (keyboard.upArrowKey.isPressed || keyboard.wKey.isPressed)
+            vertical = 1f;
+        else if (keyboard.downArrowKey.isPressed || keyboard.sKey.isPressed)
+            vertical = -1f;
+
+        return horizontal != 0f && vertical != 0f
+            ? new Vector2(horizontal, vertical).normalized
+            : Vector2.zero;
     }
 }

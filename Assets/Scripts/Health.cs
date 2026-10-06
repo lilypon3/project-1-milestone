@@ -25,6 +25,7 @@ public class Health : MonoBehaviour
         if (is_invincible || CheatManager.god_mode) return;
 
         current_health -= amount;
+        Debug.Log("Took damage");
         current_health = Mathf.Clamp(current_health, 0, max_health);
         //MakeSemiTransparent();
 

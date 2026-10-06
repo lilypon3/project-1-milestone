@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 public class BoomerangBehavior : MonoBehaviour
 {
@@ -9,8 +11,15 @@ public class BoomerangBehavior : MonoBehaviour
     [HideInInspector] public Transform player;
     private Collider2D ignoreCollider;
     private bool comeBack = false;
+    public AudioSource audioSource;
+    public AudioSource boomerangSound;
     
 
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+        boomerangSound = GetComponent<AudioSource>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -40,6 +49,7 @@ public class BoomerangBehavior : MonoBehaviour
 
     public void Init(Vector3 travelDirection, Collider2D shooterCollider = null)
     {
+        boomerangSound.Play();
         if (travelDirection != Vector3.zero)
         {
             direction = travelDirection.normalized;
@@ -62,11 +72,36 @@ public class BoomerangBehavior : MonoBehaviour
             return;
         }
         Health health = collision.GetComponentInParent<Health>();
-        if (health != null)
+        if (health == null)
         {
-            health.TakeDamage(damage, direction);
+            Destroy(gameObject);
+            return;
+        }
+
+        if (health.current_health > 1)
+        {
+            Behaviour enemyMovement = collision.GetComponentInParent<StalfosMovement>();
+            
+            if (enemyMovement != null)
+                health.StartCoroutine(Stun(enemyMovement, 3f));
+            else
+                Debug.LogWarning("Cannot stun this enemy: no supported movement component was found.", health);
+        }
+        else if (health.current_health == 1)
+        {
+            health.TakeDamage(1, direction);
         }
 
         Destroy(gameObject);
+    }
+
+    private static IEnumerator Stun(Behaviour enemyMovement, float duration)
+    {
+        bool wasEnabled = enemyMovement.enabled;
+        enemyMovement.enabled = false;
+        Debug.Log("Stunned");
+        yield return new WaitForSeconds(duration);
+        if (enemyMovement != null)
+            enemyMovement.enabled = wasEnabled;
     }
 }
