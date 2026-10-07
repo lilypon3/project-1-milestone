@@ -14,6 +14,7 @@ public class BoomerangAttack : MonoBehaviour, IWeapon
    
    
     public BoomerangBehavior boomerangPrefab;
+    private BoomerangBehavior boomerang;
     public bool IsUnlocked { get; set; } = true;
     private GridMovement gridMovement;
     private float startingMoveSpeed;
@@ -44,13 +45,13 @@ public class BoomerangAttack : MonoBehaviour, IWeapon
     public void Attack()
     {
         if (isAttacking) return;
-
+        if (boomerang != null) return; 
        // GameObject boomerang = Instantiate(boomerangPrefab, transform.position, transform.rotation);
         //BoomerangBehavior boomerangBehavior = boomerang.GetComponent<BoomerangBehavior>();
         isAttacking = true;
         timer = 0f;
         gridMovement.moveSpeed = 0f;
-        BoomerangBehavior boomerang = Instantiate(boomerangPrefab, launchOffset.position, transform.rotation);
+        boomerang = Instantiate(boomerangPrefab, launchOffset.position, transform.rotation);
         Vector2 diagonalDirection = GetDiagonalDirection();
         Vector2 travelDirection = diagonalDirection == Vector2.zero
             ? gridMovement.LastMoveDir
