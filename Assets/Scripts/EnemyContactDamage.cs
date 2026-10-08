@@ -10,6 +10,11 @@ public class EnemyContactDamage : MonoBehaviour
         TryDamage(collider);
     }
 
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        TryDamage(collision.collider);
+    }
+
     void TryDamage(Collider2D other)
     { 
 

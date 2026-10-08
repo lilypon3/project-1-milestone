@@ -18,12 +18,26 @@ public class BoomerangAttack : MonoBehaviour, IWeapon
     public bool IsUnlocked { get; set; } = true;
     private GridMovement gridMovement;
     private float startingMoveSpeed;
+    private StalfosMovement goriyaMovement;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         gridMovement = GetComponent<GridMovement>();
-        startingMoveSpeed = gridMovement.moveSpeed;
+        if (gridMovement == null)
+        {
+            goriyaMovement = GetComponent<StalfosMovement>();
+            if (goriyaMovement != null)
+            {
+                startingMoveSpeed = goriyaMovement.moveSpeed;
+            }
+            else
+            {
+                Debug.LogError("BoomerangAttack requires GridMovement or StalfosMovement.", this);
+            }
+        } else if (gridMovement != null) {
+            startingMoveSpeed = gridMovement.moveSpeed;
+        }
     }
 
     // Update is called once per frame
@@ -35,7 +49,12 @@ public class BoomerangAttack : MonoBehaviour, IWeapon
             if (timer >= timeToAttack)
             {
                 isAttacking = false;
-                gridMovement.moveSpeed = startingMoveSpeed;
+                if (gridMovement != null) {
+                    gridMovement.moveSpeed = startingMoveSpeed;
+                } else if (gridMovement == null && goriyaMovement != null)
+                {
+                    goriyaMovement.moveSpeed = startingMoveSpeed;
+                }
                 timer = 0f;
             }
     
@@ -50,11 +69,19 @@ public class BoomerangAttack : MonoBehaviour, IWeapon
         //BoomerangBehavior boomerangBehavior = boomerang.GetComponent<BoomerangBehavior>();
         isAttacking = true;
         timer = 0f;
-        gridMovement.moveSpeed = 0f;
+        if (gridMovement != null) {
+            gridMovement.moveSpeed = 0f;
+        } else if (gridMovement == null && goriyaMovement != null)
+        {
+            goriyaMovement.moveSpeed = 0f;
+        }
         boomerang = Instantiate(boomerangPrefab, launchOffset.position, transform.rotation);
         Vector2 diagonalDirection = GetDiagonalDirection();
-        Vector2 travelDirection = diagonalDirection == Vector2.zero
+        Vector2 lastMoveDirection = gridMovement != null
             ? gridMovement.LastMoveDir
+            : goriyaMovement.LastMoveDir;
+        Vector2 travelDirection = diagonalDirection == Vector2.zero
+            ? lastMoveDirection
             : diagonalDirection;
         boomerang.Init(travelDirection, GetComponent<Collider2D>());
         

@@ -37701,6 +37701,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 313571284}
     m_Modifications:
     - target: {fileID: -443677895104134195, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+      propertyPath: m_Size.x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: -443677895104134195, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+      propertyPath: m_Size.y
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: -443677895104134195, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
       value: 0.5
       objectReference: {fileID: 0}
@@ -37731,6 +37739,10 @@ PrefabInstance:
     - target: {fileID: 2456104955304564812, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_Name
       value: Tile_WALL
+      objectReference: {fileID: 0}
+    - target: {fileID: 2456104955304564812, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3927478676184684712, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_Sprite
@@ -43606,6 +43618,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 313571284}
     m_Modifications:
     - target: {fileID: -443677895104134195, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -443677895104134195, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -443677895104134195, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
       value: 0.5
       objectReference: {fileID: 0}
@@ -43636,6 +43656,10 @@ PrefabInstance:
     - target: {fileID: 2456104955304564812, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_Name
       value: Tile_WALL
+      objectReference: {fileID: 0}
+    - target: {fileID: 2456104955304564812, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 3927478676184684712, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_Sprite
@@ -52430,6 +52454,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 313571284}
     m_Modifications:
     - target: {fileID: -443677895104134195, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+      propertyPath: m_Size.x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: -443677895104134195, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+      propertyPath: m_Size.y
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: -443677895104134195, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
       value: 0.5
       objectReference: {fileID: 0}
@@ -52460,6 +52492,10 @@ PrefabInstance:
     - target: {fileID: 2456104955304564812, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_Name
       value: Tile_WALL
+      objectReference: {fileID: 0}
+    - target: {fileID: 2456104955304564812, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3927478676184684712, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_Sprite
@@ -61641,6 +61677,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 313571284}
     m_Modifications:
     - target: {fileID: -443677895104134195, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+      propertyPath: m_Size.x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: -443677895104134195, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+      propertyPath: m_Size.y
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: -443677895104134195, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
       value: 0.5
       objectReference: {fileID: 0}
@@ -61671,6 +61715,10 @@ PrefabInstance:
     - target: {fileID: 2456104955304564812, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_Name
       value: Tile_WALL
+      objectReference: {fileID: 0}
+    - target: {fileID: 2456104955304564812, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3927478676184684712, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_Sprite
@@ -74846,6 +74894,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 313571284}
     m_Modifications:
     - target: {fileID: -443677895104134195, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -443677895104134195, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
       value: 0.5
       objectReference: {fileID: 0}
@@ -74876,6 +74928,10 @@ PrefabInstance:
     - target: {fileID: 2456104955304564812, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_Name
       value: Tile_WALL
+      objectReference: {fileID: 0}
+    - target: {fileID: 2456104955304564812, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3927478676184684712, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_Sprite
@@ -77482,6 +77538,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 313571284}
     m_Modifications:
     - target: {fileID: -443677895104134195, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+      propertyPath: m_Size.x
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: -443677895104134195, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+      propertyPath: m_Size.y
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: -443677895104134195, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
       value: 0.5
       objectReference: {fileID: 0}
@@ -77512,6 +77576,10 @@ PrefabInstance:
     - target: {fileID: 2456104955304564812, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_Name
       value: Tile_WALL
+      objectReference: {fileID: 0}
+    - target: {fileID: 2456104955304564812, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3927478676184684712, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_Sprite
@@ -85892,7 +85960,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d61dce04a33068b469565c8a0d4acf1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  projectilePrefab: {fileID: 776519802}
+  projectilePrefab: {fileID: 8380704054099864120, guid: 702ae1ac83d1b8d42bc5ed8612b27ec1, type: 3}
   launchOffset: {fileID: 104762877}
   health: {fileID: 0}
 --- !u!114 &699725504
@@ -94180,18 +94248,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
---- !u!114 &776519804
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 776519800}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4801f4197d71d494e8a4397b71ba2a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
 --- !u!61 &776519805
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -94222,7 +94278,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -94238,6 +94294,33 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.4375, y: 0.24797916}
   m_EdgeRadius: 0
+--- !u!50 &776519807
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 776519800}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!1001 &777616880
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -103511,6 +103594,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 313571284}
     m_Modifications:
     - target: {fileID: -443677895104134195, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+      propertyPath: m_Size.x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: -443677895104134195, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+      propertyPath: m_Size.y
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: -443677895104134195, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
       value: 0.5
       objectReference: {fileID: 0}
@@ -103541,6 +103632,10 @@ PrefabInstance:
     - target: {fileID: 2456104955304564812, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_Name
       value: Tile_WALL
+      objectReference: {fileID: 0}
+    - target: {fileID: 2456104955304564812, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3927478676184684712, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_Sprite
@@ -115131,7 +115226,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -121462,7 +121557,7 @@ GameObject:
   - component: {fileID: 997182028}
   - component: {fileID: 997182030}
   - component: {fileID: 997182029}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: AttackArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127496,6 +127591,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 313571284}
     m_Modifications:
     - target: {fileID: -443677895104134195, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+      propertyPath: m_Size.x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: -443677895104134195, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+      propertyPath: m_Size.y
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: -443677895104134195, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
       value: 0.5
       objectReference: {fileID: 0}
@@ -127526,6 +127629,10 @@ PrefabInstance:
     - target: {fileID: 2456104955304564812, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_Name
       value: Tile_WALL
+      objectReference: {fileID: 0}
+    - target: {fileID: 2456104955304564812, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3927478676184684712, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_Sprite
@@ -135027,6 +135134,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 313571284}
     m_Modifications:
+    - target: {fileID: -443677895104134195, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -443677895104134195, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+      propertyPath: m_Size.y
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: -443677895104134195, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_IsTrigger
       value: 1
@@ -150834,6 +150949,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 313571284}
     m_Modifications:
     - target: {fileID: -443677895104134195, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -443677895104134195, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
       value: 0.5
       objectReference: {fileID: 0}
@@ -163270,6 +163389,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 313571284}
     m_Modifications:
     - target: {fileID: -443677895104134195, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+      propertyPath: m_Size.x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: -443677895104134195, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+      propertyPath: m_Size.y
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: -443677895104134195, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
       value: 0.5
       objectReference: {fileID: 0}
@@ -163300,6 +163427,10 @@ PrefabInstance:
     - target: {fileID: 2456104955304564812, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_Name
       value: Tile_WALL
+      objectReference: {fileID: 0}
+    - target: {fileID: 2456104955304564812, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3927478676184684712, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_Sprite
@@ -163973,6 +164104,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 313571284}
     m_Modifications:
     - target: {fileID: -443677895104134195, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+      propertyPath: m_Size.x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: -443677895104134195, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+      propertyPath: m_Size.y
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: -443677895104134195, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
       value: 0.5
       objectReference: {fileID: 0}
@@ -164003,6 +164142,10 @@ PrefabInstance:
     - target: {fileID: 2456104955304564812, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_Name
       value: Tile_WALL
+      objectReference: {fileID: 0}
+    - target: {fileID: 2456104955304564812, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3927478676184684712, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_Sprite
@@ -177731,6 +177874,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 313571284}
     m_Modifications:
     - target: {fileID: -443677895104134195, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+      propertyPath: m_Size.x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: -443677895104134195, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+      propertyPath: m_Size.y
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: -443677895104134195, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
       value: 0.5
       objectReference: {fileID: 0}
@@ -177761,6 +177912,10 @@ PrefabInstance:
     - target: {fileID: 2456104955304564812, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_Name
       value: Tile_WALL
+      objectReference: {fileID: 0}
+    - target: {fileID: 2456104955304564812, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3927478676184684712, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_Sprite
@@ -213139,6 +213294,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 313571284}
     m_Modifications:
     - target: {fileID: -443677895104134195, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+      propertyPath: m_Size.x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: -443677895104134195, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+      propertyPath: m_Size.y
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: -443677895104134195, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
       value: 0.5
       objectReference: {fileID: 0}
@@ -213169,6 +213332,10 @@ PrefabInstance:
     - target: {fileID: 2456104955304564812, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_Name
       value: Tile_WALL
+      objectReference: {fileID: 0}
+    - target: {fileID: 2456104955304564812, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3927478676184684712, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_Sprite
@@ -219995,7 +220162,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1961535445578823824, guid: 313cef9d356c54042953f9147fc092c7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 50.84
+      value: 111.8
       objectReference: {fileID: 0}
     - target: {fileID: 1961535445578823824, guid: 313cef9d356c54042953f9147fc092c7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -220059,6 +220226,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8257506424142125514, guid: 313cef9d356c54042953f9147fc092c7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1802676497}
+    - targetCorrespondingSourceObject: {fileID: 8257506424142125514, guid: 313cef9d356c54042953f9147fc092c7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1802676502}
   m_SourcePrefab: {fileID: 100100000, guid: 313cef9d356c54042953f9147fc092c7, type: 3}
 --- !u!1 &1802676496 stripped
 GameObject:
@@ -220185,6 +220355,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileBehavior
   speed: 4.5
   damage: 1
+--- !u!50 &1802676502
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1802676496}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!4 &1802746349 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8115149952237951590, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
@@ -222791,6 +222988,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 313571284}
     m_Modifications:
     - target: {fileID: -443677895104134195, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+      propertyPath: m_Size.x
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: -443677895104134195, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+      propertyPath: m_Size.y
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: -443677895104134195, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
       value: 0.5
       objectReference: {fileID: 0}
@@ -222821,6 +223026,10 @@ PrefabInstance:
     - target: {fileID: 2456104955304564812, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_Name
       value: Tile_WALL
+      objectReference: {fileID: 0}
+    - target: {fileID: 2456104955304564812, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3927478676184684712, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_Sprite
@@ -230357,6 +230566,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 313571284}
     m_Modifications:
     - target: {fileID: -443677895104134195, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+      propertyPath: m_Size.x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: -443677895104134195, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+      propertyPath: m_Size.y
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: -443677895104134195, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
       value: 0.5
       objectReference: {fileID: 0}
@@ -230387,6 +230604,10 @@ PrefabInstance:
     - target: {fileID: 2456104955304564812, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_Name
       value: Tile_WALL
+      objectReference: {fileID: 0}
+    - target: {fileID: 2456104955304564812, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3927478676184684712, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_Sprite
@@ -258350,6 +258571,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 313571284}
     m_Modifications:
     - target: {fileID: -443677895104134195, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -443677895104134195, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+      propertyPath: m_Size.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -443677895104134195, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
       value: 0.5
       objectReference: {fileID: 0}
@@ -263498,7 +263727,8 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 492769132832214642, guid: 2bf50d13ff0c52a4294591d1c7e706b2, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -263528,11 +263758,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1961535445578823824, guid: 313cef9d356c54042953f9147fc092c7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 48.97
+      value: 115.6
       objectReference: {fileID: 0}
     - target: {fileID: 1961535445578823824, guid: 313cef9d356c54042953f9147fc092c7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.49
+      value: 12.01
       objectReference: {fileID: 0}
     - target: {fileID: 1961535445578823824, guid: 313cef9d356c54042953f9147fc092c7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -263591,10 +263821,10 @@ PrefabInstance:
       addedObject: {fileID: 776519803}
     - targetCorrespondingSourceObject: {fileID: 8257506424142125514, guid: 313cef9d356c54042953f9147fc092c7, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 776519804}
+      addedObject: {fileID: 776519805}
     - targetCorrespondingSourceObject: {fileID: 8257506424142125514, guid: 313cef9d356c54042953f9147fc092c7, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 776519805}
+      addedObject: {fileID: 776519807}
   m_SourcePrefab: {fileID: 100100000, guid: 313cef9d356c54042953f9147fc092c7, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

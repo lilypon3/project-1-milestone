@@ -42,15 +42,6 @@ public class GoriyaAnimation : MonoBehaviour
         }
     }
 
-    public void Update()
-    {
-
-        Animate();
-            
-        //spriteRenderer.sprite = defaultSprite;
-
-    }
-
     IEnumerator Animate()
     {
         while (true) {

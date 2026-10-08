@@ -6,7 +6,7 @@ public class ProjectileBehavior : MonoBehaviour
     public float speed = 5.5f;
     private Vector2 direction = Vector2.up;
     public int damage = 1;
-    
+    private Rigidbody2D rb;
     private Collider2D ignoreCollider;
 
 
@@ -17,7 +17,6 @@ public class ProjectileBehavior : MonoBehaviour
         //checkPosition();
     }
 
-    
 
     public void Init(Vector2 travelDirection, Collider2D shooterCollider = null)
     {
@@ -29,13 +28,24 @@ public class ProjectileBehavior : MonoBehaviour
 
         ignoreCollider = shooterCollider;
         Collider2D myCollider = GetComponent<Collider2D>();
-        if (ignoreCollider != null && myCollider != null)
-        {
-            Physics2D.IgnoreCollision(myCollider, ignoreCollider);
-        }
+        // if (ignoreCollider != null && myCollider != null)
+        // {
+        //     Physics2D.IgnoreCollision(myCollider, ignoreCollider);
+        //     // Debug.Log("Collisions being ignored: " + myCollider + " ---- " + ignoreCollider);
+        // }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
+    {
+        HandleHit(collision);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        HandleHit(collision.collider);
+    }
+
+    private void HandleHit(Collider2D collision)
     {
         if (ignoreCollider != null && collision == ignoreCollider)
         {
@@ -46,9 +56,9 @@ public class ProjectileBehavior : MonoBehaviour
         {
             health.TakeDamage(damage, direction);
         }
-
+        
+        Debug.Log("Projectile collided with: " + collision);
         Destroy(gameObject);
     }
-
     
 }
