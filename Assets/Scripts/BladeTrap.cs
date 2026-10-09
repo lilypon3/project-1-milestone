@@ -1,51 +1,171 @@
 using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
 
 public class BladeTrap : MonoBehaviour
 {
+    [SerializeField] private float speed = 5f;
+    [SerializeField] private float detectionRange;
 
-    [SerializeField] private float speed = 5.0f;
-    public List<Transform> traps;
-    // hi
-
-    // See Order of Execution for Event Functions for information on FixedUpdate() and Update() related to physics queries
-    void Update()
+    private static readonly Vector2[] RayDirections =
     {
-        bool hit = Physics2D.Raycast(transform.position, Vector2.down, 5f, LayerMask.GetMask("Player"));
-        if (hit)
-        {
-            Move(direction);
-            Debug.Log("BladeTrap hit the player!");
-            // You can add logic here to damage the player or trigger an event
-        }
-        Debug.DrawRay(transform.position, Vector2.down * 5f, Color.red);
+        Vector2.down,
+        Vector2.up,
+        Vector2.left,
+        Vector2.right
+    };
+
+    private Vector3 startingPosition;
+    private Vector2 moveDirection;
+    private LayerMask playerMask;
+    private Collider2D trapCollider;
+    private readonly RaycastHit2D[] movementHits = new RaycastHit2D[8];
+    private ContactFilter2D movementFilter;
+    private TrapState state;
+    private bool playerWasDetected;
+
+    private enum TrapState
+    {
+        Idle,
+        Charging,
+        Returning
     }
 
-    void Move(direction)
+    private void Awake()
     {
-        transform.position += direction * speed * Time.deltaTime;
-        
+        startingPosition = transform.position;
+        playerMask = LayerMask.GetMask("Player");
+        trapCollider = GetComponent<Collider2D>();
+        movementFilter = new ContactFilter2D
+        {
+            useLayerMask = true,
+            layerMask = Physics2D.AllLayers,
+            useTriggers = true
+        };
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    private void Update()
     {
-        
-        if (collision.CompareTag("BladeTrap"))
+        bool playerDetected = TryDetectPlayer(out Vector2 detectedDirection);
+
+        if (state == TrapState.Idle && playerDetected && !playerWasDetected)
         {
-            // Reverse the direction of the trap when it hits a wall
-            direction = -direction;
+            moveDirection = detectedDirection;
+            state = TrapState.Charging;
         }
-        else if (collision.CompareTag("Player"))
+
+        playerWasDetected = playerDetected;
+    }
+
+    private void FixedUpdate()
+    {
+        if (state == TrapState.Charging)
         {
-            Debug.Log("BladeTrap hit the player!"); 
-            Health health = collision.GetComponentInParent<Health>();
-            health.TakeDamage(1);
-            
-            
-            
+            ChargeForward();
+        }
+        else if (state == TrapState.Returning)
+        {
+            ReturnToStartingPosition();
         }
     }
 
-    
+    private void ChargeForward()
+    {
+        float step = speed * Time.fixedDeltaTime;
+
+        if (trapCollider != null)
+        {
+            int hitCount = trapCollider.Cast(moveDirection, movementFilter, movementHits, step);
+            for (int i = 0; i < hitCount; i++)
+            {
+                BladeTrap otherTrap = movementHits[i].collider.GetComponentInParent<BladeTrap>();
+                if (otherTrap != null && otherTrap != this)
+                {
+                    BeginReturn();
+                    otherTrap.BeginReturn();
+                    return;
+                }
+            }
+        }
+
+        transform.position += (Vector3)(moveDirection * step);
+    }
+
+    private void ReturnToStartingPosition()
+    {
+        transform.position = Vector3.MoveTowards(
+            transform.position,
+            startingPosition,
+            speed * Time.fixedDeltaTime);
+
+        if (Vector3.Distance(transform.position, startingPosition) < 0.001f)
+        {
+            transform.position = startingPosition;
+            moveDirection = Vector2.zero;
+            state = TrapState.Idle;
+        }
+    }
+
+    private bool TryDetectPlayer(out Vector2 detectedDirection)
+    {
+        detectedDirection = Vector2.zero;
+        RaycastHit2D closestHit = default;
+        bool foundPlayer = false;
+
+        foreach (Vector2 rayDirection in RayDirections)
+        {
+            RaycastHit2D hit = Physics2D.Raycast(
+                transform.position,
+                rayDirection,
+                detectionRange,
+                playerMask);
+
+            Debug.DrawRay(
+                transform.position,
+                rayDirection * detectionRange,
+                Color.red);
+
+            if (hit.collider != null && (!foundPlayer || hit.distance < closestHit.distance))
+            {
+                closestHit = hit;
+                detectedDirection = rayDirection;
+                foundPlayer = true;
+            }
+        }
+
+        return foundPlayer;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        HandleContact(collision.collider);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        HandleContact(other);
+    }
+
+    private void HandleContact(Collider2D other)
+    {
+        BladeTrap otherTrap = other.GetComponentInParent<BladeTrap>();
+        if (otherTrap != null && otherTrap != this)
+        {
+            BeginReturn();
+            otherTrap.BeginReturn();
+            return;
+        }
+
+        Health health = other.GetComponentInParent<Health>();
+        if (health != null)
+        {
+            health.TakeDamage(1, moveDirection);
+        }
+    }
+
+    private void BeginReturn()
+    {
+        if (state != TrapState.Returning)
+        {
+            state = TrapState.Returning;
+        }
+    }
 }
