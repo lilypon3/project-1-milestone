@@ -107900,6 +107900,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tile_BLOCK
       objectReference: {fileID: 0}
+    - target: {fileID: 1026647087636932175, guid: e7217b3f15c424217b23aa6cd4139514, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1026647087636932175, guid: e7217b3f15c424217b23aa6cd4139514, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
