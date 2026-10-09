@@ -63,7 +63,7 @@ public class RoomTransition : MonoBehaviour, IReceiverComponent
     Vector3 finalPos = _transform.position;
     Vector3 playerNewPos = player.transform.position;
 
-    float horizontal_shift = 4f;
+    float horizontal_shift = 5f;
     float vertical_shift = 5f;
 
     if (direction == DoorDirection.Right)

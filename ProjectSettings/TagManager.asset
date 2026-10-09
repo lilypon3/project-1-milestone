@@ -13,7 +13,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Floor
   - Water
   - UI
   - Player
@@ -21,8 +21,8 @@ TagManager:
   - PlayerProjectile
   - Wall
   - Pillar
-  - Water
-  - 
+  - Door
+  - Block
   - 
   - 
   - 
@@ -45,6 +45,12 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Floor
+    uniqueID: 973417081
+    locked: 0
+  - name: Block
+    uniqueID: 1601337635
     locked: 0
   m_RenderingLayers:
   - Default
