@@ -15,28 +15,13 @@ public class RoomTransition : MonoBehaviour, IReceiverComponent
     public Vector2Int current_room;                 // set start room in Inspector
     public RoomManager room_manager;
 
+    public Vector2Int StartingRoom => room_manager != null ? room_manager.starting_room : current_room;
     static Vector2Int ToDelta(DoorDirection d) =>
         d == DoorDirection.Right ? Vector2Int.right :
         d == DoorDirection.Left  ? Vector2Int.left  :
         d == DoorDirection.Up    ? Vector2Int.up    : Vector2Int.down;
 
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    // void Start()
-    // {
-    //     coroutineParameters = new CoroutineParameters(false);
-    //     _transform = gameObject.transform;
-
-    //     messenger = gameObject.GetComponent<MessengerComponent>();
-    //     messenger.subscribe(this);
-    //     messageQueue = new Queue<ArrowInputMessage>();
-
-    //     player = GameObject.FindGameObjectWithTag("Player");
-    //     if (player == null)
-    //     {
-    //         Debug.LogWarning("RoomTransition could not find a GameObject tagged 'Player'.");
-    //     }
-    // }
     void Start()
 {
     if (room_manager != null) current_room = room_manager.starting_room;
@@ -125,13 +110,39 @@ public class RoomTransition : MonoBehaviour, IReceiverComponent
         player.transform.position = playerTarget;
         if (movement != null) movement.enabled = true;
         current_room += ToDelta(direction);   // pass direction into the coroutine
-        room_manager.Enter(current_room);
+        if (room_manager != null) room_manager.Enter(current_room);
+    }
+
+    public void SetCurrentRoom(Vector2Int room)
+    {
+        if (room == current_room) return;
+        if (room_manager != null) room_manager.Exit(current_room);
+        current_room = room;
+        if (room_manager != null) room_manager.Enter(current_room);
     }
 
     public void SnapCameraTo(Vector3 pos)
     {
         _transform.position = new Vector3(pos.x, pos.y, _transform.position.z);
     }
+
+    public void TeleportToRoom(Vector2Int room, Vector3 playerPos, Vector3 cameraPos)
+{
+    if (coroutineParameters != null && coroutineParameters.getRunning()) return;
+
+    if (room_manager != null) room_manager.Exit(current_room);
+    current_room = room;
+
+    SnapCameraTo(cameraPos);
+
+    GameObject p = player != null ? player : GameObject.FindGameObjectWithTag("Player");
+    Rigidbody2D prb = p.GetComponent<Rigidbody2D>();
+    prb.position = playerPos;
+    prb.linearVelocity = Vector2.zero;
+    p.transform.position = playerPos;
+
+    if (room_manager != null) room_manager.Enter(current_room);
+}
 
 }
 

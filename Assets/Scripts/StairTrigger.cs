@@ -7,6 +7,9 @@ public class StairTrigger : MonoBehaviour
     public RoomTransition room_transition;
     public Transform camera_target;          // supplies the camera's Z, and the fallback position
     public Transform room_bottom_center;     // empty object at the bottom-middle of the bow room for correct camera positioning
+    public bool change_room = true;
+    public Vector2Int destination_room;   // grid coord of the room the stairs lead to
+
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -33,5 +36,6 @@ public class StairTrigger : MonoBehaviour
         }
 
         room_transition.SnapCameraTo(cam_pos);
+        if (change_room) room_transition.SetCurrentRoom(destination_room);
     }
 }
