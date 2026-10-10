@@ -15,25 +15,41 @@ public class RoomTransition : MonoBehaviour, IReceiverComponent
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+    // void Start()
+    // {
+    //     coroutineParameters = new CoroutineParameters(false);
+    //     _transform = gameObject.transform;
+
+    //     messenger = gameObject.GetComponent<MessengerComponent>();
+    //     messenger.subscribe(this);
+    //     messageQueue = new Queue<ArrowInputMessage>();
+
+    //     player = GameObject.FindGameObjectWithTag("Player");
+    //     if (player == null)
+    //     {
+    //         Debug.LogWarning("RoomTransition could not find a GameObject tagged 'Player'.");
+    //     }
+    // }
     void Start()
+{
+    messageQueue = new Queue<ArrowInputMessage>();
+    coroutineParameters = new CoroutineParameters(false);
+    _transform = gameObject.transform;
+
+    messenger = gameObject.GetComponent<MessengerComponent>();
+    if (messenger != null) messenger.subscribe(this);
+
+    player = GameObject.FindGameObjectWithTag("Player");
+    if (player == null)
     {
-        coroutineParameters = new CoroutineParameters(false);
-        _transform = gameObject.transform;
-
-        messenger = gameObject.GetComponent<MessengerComponent>();
-        messenger.subscribe(this);
-        messageQueue = new Queue<ArrowInputMessage>();
-
-        player = GameObject.FindGameObjectWithTag("Player");
-        if (player == null)
-        {
-            Debug.LogWarning("RoomTransition could not find a GameObject tagged 'Player'.");
-        }
+        Debug.LogWarning("RoomTransition could not find a GameObject tagged 'Player'.");
     }
+}
 
     // Update is called once per frame
     void Update()
     {
+        if (messageQueue == null || coroutineParameters == null) return;
         if (messageQueue.Count > 0 && !coroutineParameters.getRunning())
         {
             ArrowInputMessage msg = messageQueue.Dequeue();
@@ -58,48 +74,53 @@ public class RoomTransition : MonoBehaviour, IReceiverComponent
 
     public void TriggerTransition(DoorDirection direction, GameObject player)
     {
-    if (coroutineParameters.getRunning()) return; // ignore re-triggers mid-transition
+        if (coroutineParameters.getRunning()) return; // ignore re-triggers mid-transition
 
-    Vector3 finalPos = _transform.position;
-    Vector3 playerNewPos = player.transform.position;
+        Vector3 finalPos = _transform.position;
+        Vector3 playerNewPos = player.transform.position;
 
-    float horizontal_shift = 5f;
-    float vertical_shift = 5f;
+        float horizontal_shift = 5f;
+        float vertical_shift = 5f;
 
-    if (direction == DoorDirection.Right)
-    {
-        finalPos = _transform.position - rightRoomVector;
-        playerNewPos = player.transform.position + new Vector3(horizontal_shift, 0, 0);
+        if (direction == DoorDirection.Right)
+        {
+            finalPos = _transform.position - rightRoomVector;
+            playerNewPos = player.transform.position + new Vector3(horizontal_shift, 0, 0);
+        }
+        else if (direction == DoorDirection.Left)
+        {
+            finalPos = _transform.position + rightRoomVector;
+            playerNewPos = player.transform.position - new Vector3(horizontal_shift, 0, 0);
+        }
+        else if (direction == DoorDirection.Up)
+        {
+            finalPos = _transform.position + upRoomVector;
+            playerNewPos = player.transform.position + new Vector3(0, vertical_shift, 0);
+        }
+        else if (direction == DoorDirection.Down)
+        {
+            finalPos = _transform.position - upRoomVector;
+            playerNewPos = player.transform.position - new Vector3(0, vertical_shift, 0);
+        }
+
+        // Disable Link's controls during the pan so he can't walk into walls mid-transition
+        MonoBehaviour movement = player.GetComponent<GridMovement>(); 
+        if (movement != null) movement.enabled = false;
+
+        StartCoroutine(TransitionAndReenable(finalPos, player, playerNewPos, movement));
     }
-    else if (direction == DoorDirection.Left)
+
+    IEnumerator TransitionAndReenable(Vector3 cameraTarget, GameObject player, Vector3 playerTarget, MonoBehaviour movement)
     {
-        finalPos = _transform.position + rightRoomVector;
-        playerNewPos = player.transform.position - new Vector3(horizontal_shift, 0, 0);
-    }
-    else if (direction == DoorDirection.Up)
-    {
-        finalPos = _transform.position + upRoomVector;
-        playerNewPos = player.transform.position + new Vector3(0, vertical_shift, 0);
-    }
-    else if (direction == DoorDirection.Down)
-    {
-        finalPos = _transform.position - upRoomVector;
-        playerNewPos = player.transform.position - new Vector3(0, vertical_shift, 0);
+        yield return CoroutineUtilities.moveObjectOverTime(_transform, _transform.position, cameraTarget, transitionDuration, coroutineParameters);
+        player.transform.position = playerTarget;
+        if (movement != null) movement.enabled = true;
     }
 
-    // Disable Link's controls during the pan so he can't walk into walls mid-transition
-    MonoBehaviour movement = player.GetComponent<GridMovement>(); 
-    if (movement != null) movement.enabled = false;
-
-    StartCoroutine(TransitionAndReenable(finalPos, player, playerNewPos, movement));
-}
-
-IEnumerator TransitionAndReenable(Vector3 cameraTarget, GameObject player, Vector3 playerTarget, MonoBehaviour movement)
-{
-    yield return CoroutineUtilities.moveObjectOverTime(_transform, _transform.position, cameraTarget, transitionDuration, coroutineParameters);
-    player.transform.position = playerTarget;
-    if (movement != null) movement.enabled = true;
-}
+    public void SnapCameraTo(Vector3 pos)
+    {
+        _transform.position = new Vector3(pos.x, pos.y, _transform.position.z);
+    }
 
 }
 

@@ -16,6 +16,8 @@ public class GridMovement : MonoBehaviour
     [Tooltip("Your sprite's Pixels Per Unit import setting. Movement is " +
              "snapped to this so art never renders on a half pixel.")]
     public float pixelsPerUnit = 16f;
+    public float climbSpeed = 3f;
+    int ladderContacts;
 
     private Rigidbody2D rb;
 
@@ -26,6 +28,7 @@ public class GridMovement : MonoBehaviour
 
     public Vector2 LastMoveDir { get; private set; } = Vector2.down;
     public bool IsMoving { get; private set; }
+    public bool sideScrollMode{ get; private set;}
 
     void Awake()
     {
@@ -70,6 +73,18 @@ public class GridMovement : MonoBehaviour
 
     private void Step(Vector2 input)
     {
+        if (sideScrollMode)
+        {
+            bool onLadder = ladderContacts > 0;
+            rb.gravityScale = onLadder ? 0f : 3f;
+
+            float vy = onLadder ? input.y * climbSpeed : rb.linearVelocity.y;
+            rb.linearVelocity = new Vector2(input.x * moveSpeed, vy);
+
+            IsMoving = input.x != 0f || (onLadder && input.y != 0f);
+            return;
+        }
+
         if (input == Vector2.zero)
         {
             IsMoving = false;
@@ -107,5 +122,30 @@ public class GridMovement : MonoBehaviour
         Vector2 pos = rb.position;
         return Mathf.Approximately(Mathf.Repeat(pos.x, tileSize), 0f)
             && Mathf.Approximately(Mathf.Repeat(pos.y, tileSize), 0f);
+    }
+
+    public void EnterLadder()
+    { 
+        ladderContacts++; 
+    }
+    public void ExitLadder()  
+    { 
+        ladderContacts = Mathf.Max(0, ladderContacts - 1);
+    }
+
+    public void SetSideScroll(bool on)
+    {
+        sideScrollMode = on;
+        ladderContacts = 0; // reset ladder contacts when switching modes
+        rb.gravityScale = on ? 3f : 0f;
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        if (!on)
+        {
+            rb.linearVelocity = Vector2.zero;
+        }
+        if (on)
+        {
+            LastMoveDir = Vector2.right;
+        }
     }
 }

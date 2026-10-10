@@ -9,6 +9,7 @@ TagManager:
   - key
   - Wall
   - Enemy
+  - bow
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,7 @@ TagManager:
   - Pillar
   - Door
   - Block
-  - 
+  - NPC
   - 
   - 
   - 
@@ -51,6 +52,9 @@ TagManager:
     locked: 0
   - name: Block
     uniqueID: 1601337635
+    locked: 0
+  - name: NPC
+    uniqueID: 2241023801
     locked: 0
   m_RenderingLayers:
   - Default

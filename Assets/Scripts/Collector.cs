@@ -7,6 +7,7 @@ public class Collector : MonoBehaviour
     public AudioClip rupee_collection_sound_clip;
     public AudioClip heart_collection_sound_clip;
     public AudioClip key_collection_sound_clip;
+    public AudioClip bow_collection_sound_clip;
     Inventory inventory;
     Health health;
 
@@ -57,6 +58,13 @@ public class Collector : MonoBehaviour
             if (inventory != null) inventory.AddKey(1);
             Destroy(object_collided_with);
             AudioSource.PlayClipAtPoint(key_collection_sound_clip, Camera.main.transform.position);
+        }
+
+          else if (object_collided_with.tag == "bow")
+        {
+            GetComponent<BowAttack>().IsUnlocked = true;
+            Destroy(object_collided_with);
+            AudioSource.PlayClipAtPoint(bow_collection_sound_clip, Camera.main.transform.position);
         }
     }
 }
