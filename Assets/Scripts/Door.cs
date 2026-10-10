@@ -1,64 +1,53 @@
 using UnityEngine;
 
 public enum DoorDirection { Right, Left, Up, Down }
-public enum DoorType { Open, Locked, ShutUntilCleared }
+public enum DoorType { Open, Locked, ShutUntilCleared, Sealed }
 
 public class Door : MonoBehaviour
 {
     public DoorDirection direction;
-
     public DoorType type = DoorType.Open;
+    public RoomTransition room_transition;
+    public Collider2D solid_blocker;     // physically blocks when closed
 
-    public RoomTransition room_transition; 
+    
+    void Start() { Refresh(); }
 
-    public BoxCollider2D solid_blocker; // Collider that blocks the player when the door is locked
-    public BoxCollider2D trigger_collider; // Collider that triggers the room transition when the player enters
-
-    void Start()
+    public void Refresh()
     {
-        UpdateColliders();
+        bool closed = type != DoorType.Open;
+        if (solid_blocker != null) solid_blocker.enabled = closed;
     }
-
-    void UpdateColliders()
-    {
-        bool closed = type == DoorType.Locked || type == DoorType.ShutUntilCleared;
-        if(solid_blocker != null) solid_blocker.enabled = closed;
-    }
+       
 
     public void SetShut(bool shut)
     {
-        if (type == DoorType.Locked) return; // don't change locked doors
+        if (type == DoorType.Locked || type == DoorType.Sealed) return;
         type = shut ? DoorType.ShutUntilCleared : DoorType.Open;
-        UpdateColliders();
+        Refresh();
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.CompareTag("Player")) return;
 
-        if (type == DoorType.Locked)
+        if (type == DoorType.Open)
         {
-            TryUnlock(other.gameObject);
-            return;
+            room_transition.TriggerTransition(direction, other.gameObject);
         }
-
-        room_transition.TriggerTransition(direction, other.gameObject);
-    }
-
-    void TryUnlock(GameObject player)
-    {
-        Inventory inventory = player.GetComponent<Inventory>();
-        if (inventory != null && inventory.GetKeys() > 0)
+        else if (type == DoorType.Locked)
         {
-            inventory.UseKey();
-            type = DoorType.Open;
-            UpdateColliders();
-            Debug.Log("Door unlocked!");
-            room_transition.TriggerTransition(direction, player);
-        }
-        else
-        {
-            Debug.Log("Door is locked. Need a key.");
+            Inventory inv = other.GetComponent<Inventory>();
+            if (inv != null && inv.GetKeys() > 0)
+            {
+                inv.UseKey();
+                Unlock();
+                Debug.Log("Door unlocked with a key!");
+               
+            }
+            Debug.Log("Door is locked. You need a key to open it.");
         }
     }
+
+    public void Unlock() { type = DoorType.Open; Refresh(); }
 }

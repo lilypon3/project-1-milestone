@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 1634403129529237341}
   - component: {fileID: 4119008171705557541}
   - component: {fileID: 4015980546709629498}
+  - component: {fileID: 533396614656151166}
   m_Layer: 7
   m_Name: Goriya
   m_TagString: Untagged
@@ -282,6 +283,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   boomerang: {fileID: 257871806498172422}
+--- !u!114 &533396614656151166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2475404963440018539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f598bef7a53446ec9e8b21c6f06cbde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DropTable
+  rupee_prefab: {fileID: 4725830014646499422, guid: 5b29cc8e721234d8e940754bece95a4d, type: 3}
+  heart_prefab: {fileID: 6271205611578947555, guid: 9cd334c0fa38344c5835ef4926c4e94b, type: 3}
+  bomb_prefab: {fileID: 8696338574756104190, guid: e725ba5847c09464fb29bc296cb132dc, type: 3}
+  drop_chance: 0.5
+  health: {fileID: 1634403129529237341}
 --- !u!1 &7177789621964576317
 GameObject:
   m_ObjectHideFlags: 0

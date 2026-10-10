@@ -12,6 +12,13 @@ public class RoomTransition : MonoBehaviour, IReceiverComponent
     MessengerComponent messenger;
     Queue<ArrowInputMessage> messageQueue;
     GameObject player;
+    public Vector2Int current_room;                 // set start room in Inspector
+    public RoomManager room_manager;
+
+    static Vector2Int ToDelta(DoorDirection d) =>
+        d == DoorDirection.Right ? Vector2Int.right :
+        d == DoorDirection.Left  ? Vector2Int.left  :
+        d == DoorDirection.Up    ? Vector2Int.up    : Vector2Int.down;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -32,6 +39,7 @@ public class RoomTransition : MonoBehaviour, IReceiverComponent
     // }
     void Start()
 {
+    if (room_manager != null) current_room = room_manager.starting_room;
     messageQueue = new Queue<ArrowInputMessage>();
     coroutineParameters = new CoroutineParameters(false);
     _transform = gameObject.transform;
@@ -107,14 +115,17 @@ public class RoomTransition : MonoBehaviour, IReceiverComponent
         MonoBehaviour movement = player.GetComponent<GridMovement>(); 
         if (movement != null) movement.enabled = false;
 
-        StartCoroutine(TransitionAndReenable(finalPos, player, playerNewPos, movement));
+        if (room_manager != null) room_manager.Exit(current_room);
+        StartCoroutine(TransitionAndReenable(finalPos, player, playerNewPos, movement, direction));
     }
 
-    IEnumerator TransitionAndReenable(Vector3 cameraTarget, GameObject player, Vector3 playerTarget, MonoBehaviour movement)
+    IEnumerator TransitionAndReenable(Vector3 cameraTarget, GameObject player, Vector3 playerTarget, MonoBehaviour movement, DoorDirection direction)
     {
         yield return CoroutineUtilities.moveObjectOverTime(_transform, _transform.position, cameraTarget, transitionDuration, coroutineParameters);
         player.transform.position = playerTarget;
         if (movement != null) movement.enabled = true;
+        current_room += ToDelta(direction);   // pass direction into the coroutine
+        room_manager.Enter(current_room);
     }
 
     public void SnapCameraTo(Vector3 pos)

@@ -10,6 +10,7 @@ public class PushableBlock : MonoBehaviour
     public LayerMask blocking_layers;
 
     public bool one_use = true;
+    public bool pushing_enabled = true;
 
     public System.Action onPush;
 
@@ -27,7 +28,7 @@ public class PushableBlock : MonoBehaviour
 
     void OnCollisionStay2D(Collision2D collision)
     {
-        if (is_moving || (is_used && one_use)) return;
+        if (!pushing_enabled || is_moving || (is_used && one_use)) return;
 
         GridMovement player = collision.collider.GetComponent<GridMovement>();
 

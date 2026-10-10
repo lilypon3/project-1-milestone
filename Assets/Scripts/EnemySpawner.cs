@@ -1,25 +1,37 @@
+using System.Collections.Generic;
 using UnityEngine;
 
-public class KeeseSpawner : MonoBehaviour
+public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject enemyPrefab; // Drag your prefab here in the Inspector
-    [SerializeField] private int numberToSpawn = 5;  // How many enemies you want
-    [SerializeField] private Vector3 spawnOffset = new Vector3(0f, 1f, 0f); // Distance between each spawn
+    [SerializeField] private GameObject enemyPrefab;
+    [SerializeField] private int numberToSpawn = 5;
+    [SerializeField] private Vector2 areaSize = new Vector2(10f, 6f); // spawn region centered on this object
 
-    void Start()
+    // No Start(): the RoomController calls this when Link enters the room
+    void Awake()
     {
-        SpawnMultipleEnemies();
+        Debug.Log($"[Spawner] {name} Awake. numberToSpawn={numberToSpawn}, prefab={(enemyPrefab ? enemyPrefab.name : "NONE")}");
     }
 
-    void SpawnMultipleEnemies()
+    public List<GameObject> Spawn(Transform parent)
     {
+        Debug.Log($"[Spawner] Spawn() called on {name}, spawning {numberToSpawn}");
+        List<GameObject> spawned = new List<GameObject>();
         for (int i = 0; i < numberToSpawn; i++)
         {
-            // Calculate a unique position for each spawned enemy
-            Vector3 spawnPosition = transform.position + spawnOffset;
-
-            // Instantiate (spawn) the prefab into the scene
-            Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+            Vector3 offset = new Vector3(
+                Random.Range(-areaSize.x / 2f, areaSize.x / 2f),
+                Random.Range(-areaSize.y / 2f, areaSize.y / 2f), 0f);
+            GameObject e = Instantiate(enemyPrefab, transform.position + offset, Quaternion.identity, parent);
+            Debug.Log($"[Spawner] #{i} spawned at {e.transform.position}");
+            spawned.Add(e);
         }
+        return spawned;
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireCube(transform.position, new Vector3(areaSize.x, areaSize.y, 0f));
     }
 }
