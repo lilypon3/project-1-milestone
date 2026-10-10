@@ -1,11 +1,14 @@
 using UnityEngine;
 
 public enum DoorDirection { Right, Left, Up, Down }
+public enum DoorType { Open, Locked, ShutUntilCleared }
 
 public class Door : MonoBehaviour
 {
     public DoorDirection direction;
-    public bool is_locked = false;
+
+    public DoorType type = DoorType.Open;
+
     public RoomTransition room_transition; 
 
     public BoxCollider2D solid_blocker; // Collider that blocks the player when the door is locked
@@ -18,14 +21,22 @@ public class Door : MonoBehaviour
 
     void UpdateColliders()
     {
-        solid_blocker.enabled = is_locked;
+        bool closed = type == DoorType.Locked || type == DoorType.ShutUntilCleared;
+        if(solid_blocker != null) solid_blocker.enabled = closed;
+    }
+
+    public void SetShut(bool shut)
+    {
+        if (type == DoorType.Locked) return; // don't change locked doors
+        type = shut ? DoorType.ShutUntilCleared : DoorType.Open;
+        UpdateColliders();
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.CompareTag("Player")) return;
 
-        if (is_locked)
+        if (type == DoorType.Locked)
         {
             TryUnlock(other.gameObject);
             return;
@@ -40,7 +51,7 @@ public class Door : MonoBehaviour
         if (inventory != null && inventory.GetKeys() > 0)
         {
             inventory.UseKey();
-            is_locked = false;
+            type = DoorType.Open;
             UpdateColliders();
             Debug.Log("Door unlocked!");
             room_transition.TriggerTransition(direction, player);
