@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6154323500543163982}
   - component: {fileID: -6682218975752815884}
   - component: {fileID: 8203170564585523369}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Boomerang
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,7 +127,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -285,3 +285,4 @@ MonoBehaviour:
   rupee_collection_sound_clip: {fileID: 8300000, guid: d29dbd3c3b177e049b961db77281ee13, type: 3}
   heart_collection_sound_clip: {fileID: 8300000, guid: b4c4d55746209ad43af79d27809638b5, type: 3}
   key_collection_sound_clip: {fileID: 8300000, guid: 23941d859ea9f9e49ab3f3c0faae4c76, type: 3}
+  bow_collection_sound_clip: {fileID: 0}

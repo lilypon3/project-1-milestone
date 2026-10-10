@@ -5,28 +5,32 @@ using UnityEngine.SceneManagement;
 
 public class BombBehavior : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] private float explosionRadius = 2.5f;
+    [SerializeField] private int damage = 3;
+
     void Start()
     {
-        StartCoroutine("Explode");
+        StartCoroutine(Explode());
     }
 
-    // Update is called once per frame
-    public IEnumerator Explode() {
+    private IEnumerator Explode()
+    {
         yield return new WaitForSeconds(1.5f);
-        GameObject enemy = GameObject.FindGameObjectWithTag("Enemy");
-        if (enemy == null)
+
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, explosionRadius);
+        HashSet<Health> damagedHealth = new HashSet<Health>();
+        foreach (Collider2D hit in hits)
         {
-            enemy = GameObject.FindGameObjectWithTag("Boss");
-        }
-        if (enemy != null && Vector3.Distance(transform.position, enemy.transform.position) < 1.5f)
-        {
-            Health health = enemy.GetComponent<Health>();
-            if (health != null)
+            Health health = hit.GetComponentInParent<Health>();
+            if (health == null || health.CompareTag("Player") || !damagedHealth.Add(health))
             {
-                health.TakeDamage(3, Vector2.zero);
+                continue;
             }
+
+            health.TakeDamage(damage, Vector2.zero);
+            Debug.Log("Bomb hit " + health.name + ".");
         }
+
         Destroy(gameObject);
     }
 }
