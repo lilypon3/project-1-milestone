@@ -27,7 +27,10 @@ public class Door : MonoBehaviour
         Refresh();
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other) { HandleContact(other); }
+    void OnTriggerStay2D(Collider2D other)  { HandleContact(other); }
+
+    void HandleContact(Collider2D other)
     {
         if (!other.CompareTag("Player")) return;
 
@@ -43,10 +46,11 @@ public class Door : MonoBehaviour
                 inv.UseKey();
                 Debug.Log("Door unlocked with a key!");
                 Unlock();
-                
-               
             }
-            Debug.Log("Door is locked. You need a key to open it.");
+            else
+            {
+                Debug.Log("Door is locked. You need a key.");
+            }
         }
     }
 
