@@ -41,8 +41,9 @@ public class Door : MonoBehaviour
             if (inv != null && inv.GetKeys() > 0)
             {
                 inv.UseKey();
-                Unlock();
                 Debug.Log("Door unlocked with a key!");
+                Unlock();
+                
                
             }
             Debug.Log("Door is locked. You need a key to open it.");

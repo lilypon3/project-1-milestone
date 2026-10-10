@@ -22,7 +22,8 @@ public class Health : MonoBehaviour
 
     public void TakeDamage (int amount, Vector2 knockback_direction)
     {
-        if (is_invincible || CheatManager.god_mode) return;
+        if (is_invincible) return;
+    if (CheatManager.god_mode && CompareTag("Player")) return;
 
         current_health -= amount;
         Debug.Log("Took damage");

@@ -275667,6 +275667,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Locked Door (2,0)
       objectReference: {fileID: 0}
+    - target: {fileID: 9187583395131063656, guid: 84c9680705e5d4eeaa90bfabcce8b105, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.07
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
