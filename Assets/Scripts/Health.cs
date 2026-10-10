@@ -42,7 +42,9 @@ public class Health : MonoBehaviour
     public void addHealth (int amount)
     {
         current_health += amount;
+        if (amount != 999) {
         current_health = Mathf.Clamp(current_health, 0, max_health);
+        }
     }
 
     IEnumerator InvincibilityCoroutine()

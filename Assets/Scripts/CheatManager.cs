@@ -30,6 +30,7 @@ public class CheatManager : MonoBehaviour
         {
             inventory.AddRupee(999);
             inventory.AddKey(999);
+            health.addHealth(999);
             // AddBomb once bombs exist
         }
         

@@ -14,9 +14,14 @@ public class BombBehavior : MonoBehaviour
     // Update is called once per frame
     public IEnumerator Explode() {
         yield return new WaitForSeconds(1.5f);
-        if (Vector3.Distance(transform.position, GameObject.FindGameObjectWithTag("Enemy").transform.position) < 1.5f)
+        GameObject enemy = GameObject.FindGameObjectWithTag("Enemy");
+        if (enemy == null)
         {
-            Health health = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Health>();
+            enemy = GameObject.FindGameObjectWithTag("Boss");
+        }
+        if (enemy != null && Vector3.Distance(transform.position, enemy.transform.position) < 1.5f)
+        {
+            Health health = enemy.GetComponent<Health>();
             if (health != null)
             {
                 health.TakeDamage(3, Vector2.zero);
