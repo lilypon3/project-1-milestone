@@ -12,6 +12,11 @@ public class CheatManager : MonoBehaviour
 
     public WeaponController weaponController;
 
+    public RoomTransition roomTransition;
+    public Vector2Int shieldRoomStart = new Vector2Int(5, 1);
+    public Transform ShieldRoomPlayerSpawn;
+    public Transform ShieldRoomCameraStart;
+
     void Awake() { god_mode = false; }
 
     void Update()
@@ -28,6 +33,15 @@ public class CheatManager : MonoBehaviour
             {
                 ApplyGodModeBenefits();
             }
+        }
+
+        if (Keyboard.current.digit4Key.wasPressedThisFrame)
+        {
+            if (last_frame == Time.frameCount) return; // prevent double toggle in one frame
+            last_frame = Time.frameCount;
+
+            StartShieldRoom();
+
         }
     }
 
@@ -46,5 +60,18 @@ public class CheatManager : MonoBehaviour
             IWeapon alt = weaponController.GetCurrentAltWeapon();
             if (alt != null) alt.IsUnlocked = true; // unlocks bow for p1_milestone
         }
+    }
+
+    void StartShieldRoom()
+    {
+        if (roomTransition == null || ShieldRoomPlayerSpawn == null || ShieldRoomCameraStart == null)
+        {
+            Debug.LogError("CheatManager: RoomTransition or ShieldRoom spawn points are not set.");
+            return;
+        }
+        
+        roomTransition.TeleportToRoom(shieldRoomStart, ShieldRoomPlayerSpawn.position, ShieldRoomCameraStart.position);
+        Debug.Log("Teleported to Shield Room.");
+        
     }
 }
