@@ -24,6 +24,7 @@ public class WeaponController : MonoBehaviour
         if (Keyboard.current.spaceKey.wasPressedThisFrame)
         {
             CycleAltWeapon();
+            Debug.Log(alt_weapons[current_alt_index] + "equipped");
         }
     }
 

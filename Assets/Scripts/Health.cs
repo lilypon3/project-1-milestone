@@ -14,6 +14,7 @@ public class Health : MonoBehaviour
     public System.Action<Vector2> onDamaged;
 
     bool is_invincible = false;
+    bool is_shielding = false;
 
     void Awake()
     {
@@ -22,7 +23,7 @@ public class Health : MonoBehaviour
 
     public void TakeDamage (int amount, Vector2 knockback_direction)
     {
-        if (is_invincible) return;
+        if (is_invincible || is_shielding) return;
     if (CheatManager.god_mode && CompareTag("Player")) return;
 
         current_health -= amount;
@@ -46,6 +47,11 @@ public class Health : MonoBehaviour
         if (amount != 999) {
         current_health = Mathf.Clamp(current_health, 0, max_health);
         }
+    }
+
+    public void SetShielding(bool shielding)
+    {
+        is_shielding = shielding;
     }
 
     IEnumerator InvincibilityCoroutine()

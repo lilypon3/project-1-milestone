@@ -106618,6 +106618,7 @@ GameObject:
   - component: {fileID: 699725509}
   - component: {fileID: 699725510}
   - component: {fileID: 699725511}
+  - component: {fileID: 699725512}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -106700,6 +106701,7 @@ Transform:
   m_Children:
   - {fileID: 997182028}
   - {fileID: 104762877}
+  - {fileID: 923563913}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &699725496
@@ -106932,6 +106934,7 @@ MonoBehaviour:
   - {fileID: 699725507}
   - {fileID: 699725510}
   - {fileID: 699725511}
+  - {fileID: 699725512}
 --- !u!114 &699725509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106975,6 +106978,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BoomerangAttack
   launchOffset: {fileID: 104762877}
   boomerangPrefab: {fileID: 6403217929494114244, guid: ccdffa85118d23f42b6c725d8ec1daff, type: 3}
+--- !u!114 &699725512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 699725492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0e252b4418fb3643a68fe52bc7fc00b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  shieldOffset: {fileID: 923563913}
+  shieldPrefab: {fileID: 4159989141733292038, guid: 76d12f01fcecf734da41d2569f42f781, type: 3}
+  health: {fileID: 699725504}
 --- !u!4 &700065457 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8115149952237951590, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
@@ -138242,6 +138260,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8115149952237951590, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
   m_PrefabInstance: {fileID: 630187081}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &923563912
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 923563913}
+  - component: {fileID: 923563915}
+  m_Layer: 6
+  m_Name: ShieldOffset
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &923563913
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 923563912}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.025, y: -0.572, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 699725494}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &923563915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 923563912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c6e43d831246bd4ab0eb111ef51017f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1001 &923645892
 PrefabInstance:
   m_ObjectHideFlags: 0
