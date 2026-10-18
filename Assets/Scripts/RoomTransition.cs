@@ -14,13 +14,18 @@ public class RoomTransition : MonoBehaviour, IReceiverComponent
     GameObject player;
     public Vector2Int current_room;                 // set start room in Inspector
     public RoomManager room_manager;
+    Vector3 savedCameraPos;
+    bool hasSavedCamera;
 
     public Vector2Int StartingRoom => room_manager != null ? room_manager.starting_room : current_room;
     static Vector2Int ToDelta(DoorDirection d) =>
         d == DoorDirection.Right ? Vector2Int.right :
         d == DoorDirection.Left  ? Vector2Int.left  :
         d == DoorDirection.Up    ? Vector2Int.up    : Vector2Int.down;
-
+    
+    public CanvasGroup fade_group;        // optional
+    public float fade_time = 0.2f;
+    bool teleporting;
 
     void Start()
 {
@@ -67,7 +72,7 @@ public class RoomTransition : MonoBehaviour, IReceiverComponent
 
     public void TriggerTransition(DoorDirection direction, GameObject player)
     {
-        if (coroutineParameters.getRunning()) return; // ignore re-triggers mid-transition
+        if (teleporting || coroutineParameters.getRunning()) return; // ignore re-triggers mid-transition
 
         Vector3 finalPos = _transform.position;
         Vector3 playerNewPos = player.transform.position;
@@ -126,23 +131,76 @@ public class RoomTransition : MonoBehaviour, IReceiverComponent
         _transform.position = new Vector3(pos.x, pos.y, _transform.position.z);
     }
 
-    public void TeleportToRoom(Vector2Int room, Vector3 playerPos, Vector3 cameraPos)
-{
-    if (coroutineParameters != null && coroutineParameters.getRunning()) return;
+    public void TeleportToRoom(Vector2Int room, Vector3 playerPos, Vector3 cameraPos, bool useFade = true)
+    {
+        RunWithFade(() =>
+        {
+            if (room_manager != null) room_manager.Exit(current_room);
+            current_room = room;
+            SnapCameraTo(cameraPos);
 
-    if (room_manager != null) room_manager.Exit(current_room);
-    current_room = room;
+            GameObject p = player != null ? player : GameObject.FindGameObjectWithTag("Player");
+            Rigidbody2D prb = p.GetComponent<Rigidbody2D>();
+            prb.position = playerPos;
+            prb.linearVelocity = Vector2.zero;
+            p.transform.position = playerPos;
 
-    SnapCameraTo(cameraPos);
+            if (room_manager != null) room_manager.Enter(current_room);
+        }, useFade);
+    }
 
-    GameObject p = player != null ? player : GameObject.FindGameObjectWithTag("Player");
-    Rigidbody2D prb = p.GetComponent<Rigidbody2D>();
-    prb.position = playerPos;
-    prb.linearVelocity = Vector2.zero;
-    p.transform.position = playerPos;
+    IEnumerator Fade(float from, float to)
+    {
+        if (fade_group == null) yield break;   // no group assigned = instant, no fade
+        for (float t = 0f; t < fade_time; t += Time.deltaTime)
+        {
+            fade_group.alpha = Mathf.Lerp(from, to, t / fade_time);
+            yield return null;
+        }
+        fade_group.alpha = to;
+    }
 
-    if (room_manager != null) room_manager.Enter(current_room);
-}
+    public void RunWithFade(System.Action atBlack, bool useFade = true)
+    {
+        if (teleporting || (coroutineParameters != null && coroutineParameters.getRunning())) return;
+        StartCoroutine(FadeRoutine(atBlack, useFade));
+    }
+
+    IEnumerator FadeRoutine(System.Action atBlack, bool useFade)
+    {
+        teleporting = true;
+
+        GameObject p = player != null ? player : GameObject.FindGameObjectWithTag("Player");
+        GridMovement move = p.GetComponent<GridMovement>();
+        if (move != null) move.enabled = false;
+
+        // Stop horizontal drift while controls are frozen (keeps vertical so gravity still works)
+        Rigidbody2D rb0 = p.GetComponent<Rigidbody2D>();
+        if (rb0 != null) rb0.linearVelocity = new Vector2(0f, rb0.linearVelocity.y);
+
+        if (useFade) yield return Fade(0f, 1f);
+
+        atBlack?.Invoke();
+
+        if (move != null) move.enabled = true;
+
+        if (useFade) yield return Fade(1f, 0f);
+
+        teleporting = false;
+    }
+
+    public void SaveCameraPosition()
+    {
+        savedCameraPos = _transform.position;
+        hasSavedCamera = true;
+    }
+
+    public void RestoreCameraPosition()
+    {
+        if (hasSavedCamera) SnapCameraTo(savedCameraPos);
+    }
+
+    public bool HasSavedCamera => hasSavedCamera;
 
 }
 

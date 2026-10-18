@@ -16,12 +16,15 @@ public class RoomController : MonoBehaviour
     public bool IsCleared => cleared;
     public System.Action onCleared;
 
+    public bool IsActiveRoom { get; private set; }
+
     List<GameObject> enemies = new List<GameObject>();
     int alive;
     bool spawned, cleared;
 
     public void Enter()
     {
+        IsActiveRoom = true;
 
         Debug.Log($"[Room {grid_coord}] Enter. spawned={spawned}, spawners={spawners.Count}, enemy_spawns={enemy_spawns.Count}");   
         if (!spawned)
@@ -40,7 +43,10 @@ public class RoomController : MonoBehaviour
             foreach (var e in enemies) if (e != null) e.SetActive(true);
         }
 
-        if (alive > 0 && shut_doors_until_cleared) SetDoorsShut(true);
+        if (alive > 0 && shut_doors_until_cleared) {
+            SetDoorsShut(true);
+            Debug.Log("All enemies must be defeated to open doors.");
+        }
     }
 
     void Register(GameObject e)
@@ -58,6 +64,7 @@ public class RoomController : MonoBehaviour
 
     public void Exit()
     {
+        IsActiveRoom = false;
         foreach (var e in enemies) if (e != null) e.SetActive(false);  // frozen until return
     }
 

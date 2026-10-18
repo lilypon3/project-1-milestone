@@ -9,6 +9,12 @@ public class Door : MonoBehaviour
     public DoorType type = DoorType.Open;
     public RoomTransition room_transition;
     public Collider2D solid_blocker;     // physically blocks when closed
+    [Header("Portal (optional)")]
+    public bool is_portal; // portal for shield room transition instead of regular door transition
+    public Vector2Int destination_room;   //(5,1)
+    public Transform player_spawn;        // where Link appears
+    public Transform camera_point;        // where the camera should sit in the destination room
+    public bool use_fade = false;  
 
     
     void Start() { Refresh(); }
@@ -36,7 +42,10 @@ public class Door : MonoBehaviour
 
         if (type == DoorType.Open)
         {
-            room_transition.TriggerTransition(direction, other.gameObject);
+            if (is_portal && player_spawn != null && camera_point != null)
+                room_transition.TeleportToRoom(destination_room, player_spawn.position, camera_point.position, use_fade);
+            else
+                room_transition.TriggerTransition(direction, other.gameObject);
         }
         else if (type == DoorType.Locked)
         {

@@ -17,6 +17,11 @@ public class CheatManager : MonoBehaviour
     public Transform ShieldRoomPlayerSpawn;
     public Transform ShieldRoomCameraStart;
 
+    public Vector2Int[] customLevelRooms = {
+    new Vector2Int(5, 1),
+    new Vector2Int(5, 2),
+    new Vector2Int(6, 2)};
+
     void Awake() { god_mode = false; }
 
     void Update()
@@ -69,9 +74,21 @@ public class CheatManager : MonoBehaviour
             Debug.LogError("CheatManager: RoomTransition or ShieldRoom spawn points are not set.");
             return;
         }
-        
+
+        if (InShieldLevel())
+        {
+            Debug.Log("Already in the shield level.");
+            return;
+        }
+
         roomTransition.TeleportToRoom(shieldRoomStart, ShieldRoomPlayerSpawn.position, ShieldRoomCameraStart.position);
         Debug.Log("Teleported to Shield Room.");
-        
+    }
+
+    bool InShieldLevel()
+    {
+        foreach (var r in customLevelRooms)
+            if (roomTransition.current_room == r) return true;
+        return false;
     }
 }
