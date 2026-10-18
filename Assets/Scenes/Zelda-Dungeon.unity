@@ -106618,7 +106618,6 @@ GameObject:
   - component: {fileID: 699725509}
   - component: {fileID: 699725510}
   - component: {fileID: 699725511}
-  - component: {fileID: 699725512}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -106793,6 +106792,7 @@ MonoBehaviour:
   heart_collection_sound_clip: {fileID: 8300000, guid: b4c4d55746209ad43af79d27809638b5, type: 3}
   key_collection_sound_clip: {fileID: 8300000, guid: 23941d859ea9f9e49ab3f3c0faae4c76, type: 3}
   bow_collection_sound_clip: {fileID: 8300000, guid: 19fef7376bfc0914a86056dab1fe21ad, type: 3}
+  bomb_collection_sound_clip: {fileID: 8300000, guid: 3490d74a15d64f04b9847f6f59193c2f, type: 3}
 --- !u!114 &699725499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106884,6 +106884,8 @@ MonoBehaviour:
   max_health: 3
   current_health: 3
   invincibility_time: 1
+  damage_sound_clip: {fileID: 8300000, guid: d6a43b178acd5c74299be97f0fb7addd, type: 3}
+  death_sound_clip: {fileID: 8300000, guid: e6da02485970d124fb1790ce5a1ad194, type: 3}
 --- !u!114 &699725505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106934,7 +106936,7 @@ MonoBehaviour:
   - {fileID: 699725507}
   - {fileID: 699725510}
   - {fileID: 699725511}
-  - {fileID: 699725512}
+  - {fileID: 0}
 --- !u!114 &699725509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106978,21 +106980,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BoomerangAttack
   launchOffset: {fileID: 104762877}
   boomerangPrefab: {fileID: 6403217929494114244, guid: ccdffa85118d23f42b6c725d8ec1daff, type: 3}
---- !u!114 &699725512
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 699725492}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0e252b4418fb3643a68fe52bc7fc00b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  shieldOffset: {fileID: 923563913}
-  shieldPrefab: {fileID: 4159989141733292038, guid: 76d12f01fcecf734da41d2569f42f781, type: 3}
-  health: {fileID: 699725504}
 --- !u!4 &700065457 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8115149952237951590, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}

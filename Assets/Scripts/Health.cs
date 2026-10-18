@@ -9,9 +9,12 @@ public class Health : MonoBehaviour
     [SerializeField] public int max_health; //in half heart units, so 6 = 3 hearts
     public int current_health;
     public float invincibility_time = 1.0f;
+    public AudioClip damage_sound_clip;
+    public AudioClip death_sound_clip;
 
     public System.Action onDeath;
     public System.Action<Vector2> onDamaged;
+    
 
     bool is_invincible = false;
     bool is_shielding = false;
@@ -27,6 +30,7 @@ public class Health : MonoBehaviour
     if (CheatManager.god_mode && CompareTag("Player")) return;
 
         current_health -= amount;
+        if (current_health > 0) PlaySound(damage_sound_clip);        
         Debug.Log("Took damage");
         current_health = Mathf.Clamp(current_health, 0, max_health);
         //MakeSemiTransparent();
@@ -64,13 +68,27 @@ public class Health : MonoBehaviour
 
     void Die()
     {
-        Debug.Log("Player has died!");
+        PlaySound(death_sound_clip);
+        Debug.Log(name + " died");
+
         if (onDeath != null)
         {
             onDeath.Invoke();
-            return; // let the listener (enemy) decide what happens instead of reloading scene
+            return;
         }
-        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+        StartCoroutine(ReloadAfterDelay(1.0f));   
+    }
+
+    IEnumerator ReloadAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    void PlaySound(AudioClip clip)
+    {
+        if (clip != null && Camera.main != null)
+            AudioSource.PlayClipAtPoint(clip, Camera.main.transform.position);
     }
 
 

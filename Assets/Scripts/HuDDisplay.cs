@@ -27,7 +27,8 @@ public class HuDDisplay : MonoBehaviour
             string rupee_count_string = "Rupees: " + inventory.GetRupees().ToString();
             string key_count_string = "Keys: " + inventory.GetKeys().ToString();
             string heart_count_string = "Hearts: " + health.current_health.ToString();
-            text_component.text = rupee_count_string + "\n" + key_count_string + "\n" + heart_count_string + "\n" + "X for Sword, Z for Alt Weapon";
+            string bomb_count_string = "Bombs: " + inventory.GetBombs().ToString();
+            text_component.text = rupee_count_string + "\n" + key_count_string + "\n" + heart_count_string + "\n" + bomb_count_string + "\n" + "X for Sword, Z for Alt Weapon";
         }
         
     }

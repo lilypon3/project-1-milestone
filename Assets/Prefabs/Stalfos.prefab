@@ -216,6 +216,8 @@ MonoBehaviour:
   max_health: 3
   current_health: 3
   invincibility_time: 1
+  damage_sound_clip: {fileID: 8300000, guid: 64061c9da0cfc9d44a8795a283eaaebd, type: 3}
+  death_sound_clip: {fileID: 8300000, guid: c46c4f45ede96fb4392566d77d8efcaf, type: 3}
 --- !u!114 &-3927692759310544322
 MonoBehaviour:
   m_ObjectHideFlags: 0

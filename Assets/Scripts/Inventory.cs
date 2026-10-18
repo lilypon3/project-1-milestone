@@ -7,6 +7,7 @@ public class Inventory : MonoBehaviour
 
     int key_count = 0;
     int rupee_count = 5;
+    int bombCount = 0;
 
 
     public void AddRupee(int num_rupees)
@@ -43,6 +44,17 @@ public class Inventory : MonoBehaviour
         key_count = Mathf.Max(0, key_count - 1);
     }
 
+    public void AddBomb(int num_bombs)
+    {
+        bombCount += num_bombs;
+    }
+
+    public int GetBombs()
+    {
+        return bombCount;
+    }
+
+    
 
 }
 

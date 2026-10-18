@@ -8,6 +8,7 @@ public class Collector : MonoBehaviour
     public AudioClip heart_collection_sound_clip;
     public AudioClip key_collection_sound_clip;
     public AudioClip bow_collection_sound_clip;
+    public AudioClip bomb_collection_sound_clip;
     Inventory inventory;
     Health health;
 
@@ -65,6 +66,14 @@ public class Collector : MonoBehaviour
             GetComponent<BowAttack>().IsUnlocked = true;
             Destroy(object_collided_with);
             AudioSource.PlayClipAtPoint(bow_collection_sound_clip, Camera.main.transform.position);
+        }
+
+        else if (object_collided_with.tag == "bomb")
+        {
+            Debug.Log("Collected bomb!");
+            if (inventory != null) inventory.AddBomb(1);
+            Destroy(object_collided_with);
+            AudioSource.PlayClipAtPoint(bomb_collection_sound_clip, Camera.main.transform.position);
         }
     }
 }

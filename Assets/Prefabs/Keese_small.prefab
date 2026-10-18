@@ -60,6 +60,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Keese_small
       objectReference: {fileID: 0}
+    - target: {fileID: 6919004062461085652, guid: 43972276ae5e01e489320b75a95fa801, type: 3}
+      propertyPath: death_sound_clip
+      value: 
+      objectReference: {fileID: 8300000, guid: c46c4f45ede96fb4392566d77d8efcaf, type: 3}
+    - target: {fileID: 6919004062461085652, guid: 43972276ae5e01e489320b75a95fa801, type: 3}
+      propertyPath: damage_sound_clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 64061c9da0cfc9d44a8795a283eaaebd, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
