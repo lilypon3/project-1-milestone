@@ -1,0 +1,7 @@
+What is your new mechanic?
+
+How does your level teach the mechanic to the player?
+
+How do you explore this mechanic in different ways?
+
+Add a url to your portfolio with a web build of your game.
