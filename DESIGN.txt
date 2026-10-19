@@ -1,7 +1,13 @@
 What is your new mechanic?
 
+  The new mechanic added is a shield for players to block incoming damage. The player needs to hold on the z key when the shield is equipped to block incoming damage. The shield can either be picked up in the new level or cheated in using the "1" key like the other weapons. The new level can be accessed directly by pressing "4". 
+
 How does your level teach the mechanic to the player?
 
+  The level has the shield the player can pickup. In the next room, the player is able to test the shield in a room full of enemies. The final room has arrows that cause damage to players. These arrows are released from turrets in different time intervals, and the player must block the arrows with the shield to walk through the room unscathed. 
+
 How do you explore this mechanic in different ways?
+
+  The new shield mechanic is being tested with different ways players can take damage, whether that be from enemies or the new hostile arrows. 
 
 Add a url to your portfolio with a web build of your game.
