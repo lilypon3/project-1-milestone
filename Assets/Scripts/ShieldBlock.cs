@@ -14,7 +14,7 @@ public class ShieldBlock : MonoBehaviour, IWeapon
    
     public Health health;
 
-    public bool IsUnlocked { get; set; } = true; 
+    public bool IsUnlocked { get; set; } = false; // must be picked up in-game, or cheated in
 
     Rigidbody2D rb;
     // Start is called once before the first execution of Update after the MonoBehaviour is created

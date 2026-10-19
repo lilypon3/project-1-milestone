@@ -14,7 +14,7 @@ public class BombAttack : MonoBehaviour, IWeapon
     private GridMovement gridMovement;
     private float startingMoveSpeed;
 
-    public bool IsUnlocked { get; set; } = true; // must be picked up in-game, or cheated in
+    public bool IsUnlocked { get; set; } = false; // must be picked up in-game, or cheated in
 
     void Start()
     {

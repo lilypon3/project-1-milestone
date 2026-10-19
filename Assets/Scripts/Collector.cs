@@ -12,6 +12,10 @@ public class Collector : MonoBehaviour
     Inventory inventory;
     Health health;
 
+    public int rupeesCollectedDuringGodMode = 0;
+    public int keysCollectedDuringGodMode = 0;
+    public int bombsCollectedDuringGodMode = 0;
+
     void Start()
     {
         inventory = GetComponent<Inventory>();
@@ -29,16 +33,22 @@ public class Collector : MonoBehaviour
     {
         GameObject object_collided_with = coll.gameObject;
 
+        // the shield link is holding is not a pickup
+        if (coll.GetComponentInParent<ShieldBehavior>() != null) return;
+
         if (object_collided_with.tag == "rupee")
         {
-            Debug.Log("Collected rupee!");
             if (inventory != null)
             {
+                Debug.Log("Collected rupee!");
                 inventory.AddRupee(1);
+
+                if (CheatManager.god_mode)
+                    rupeesCollectedDuringGodMode++;
             }
 
             Destroy(object_collided_with);
-            AudioSource.PlayClipAtPoint(rupee_collection_sound_clip, Camera.main.transform.position);
+            AudioSource.PlayClipAtPoint(rupee_collection_sound_clip,Camera.main.transform.position);
         }
 
         else if (object_collided_with.tag == "heart")
@@ -55,10 +65,17 @@ public class Collector : MonoBehaviour
 
         else if (object_collided_with.tag == "key")
         {
-            Debug.Log("Collected key!");
-            if (inventory != null) inventory.AddKey(1);
+            if (inventory != null)
+            {
+                Debug.Log("Collected key!");
+                inventory.AddKey(1);
+
+                if (CheatManager.god_mode)
+                    keysCollectedDuringGodMode++;
+            }
+
             Destroy(object_collided_with);
-            AudioSource.PlayClipAtPoint(key_collection_sound_clip, Camera.main.transform.position);
+            AudioSource.PlayClipAtPoint(key_collection_sound_clip,Camera.main.transform.position);
         }
 
           else if (object_collided_with.tag == "bow")
@@ -70,10 +87,17 @@ public class Collector : MonoBehaviour
 
         else if (object_collided_with.tag == "bomb")
         {
-            Debug.Log("Collected bomb!");
-            if (inventory != null) inventory.AddBomb(1);
+            if (inventory != null)
+            {
+                Debug.Log("Collected bomb!");
+                inventory.AddBomb(1);
+
+                if (CheatManager.god_mode)
+                    bombsCollectedDuringGodMode++;
+            }
+
             Destroy(object_collided_with);
-            AudioSource.PlayClipAtPoint(bomb_collection_sound_clip, Camera.main.transform.position);
+            AudioSource.PlayClipAtPoint(bomb_collection_sound_clip,Camera.main.transform.position);
         }
     }
 }

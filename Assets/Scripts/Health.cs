@@ -27,13 +27,12 @@ public class Health : MonoBehaviour
     public void TakeDamage (int amount, Vector2 knockback_direction)
     {
         if (is_invincible || is_shielding) return;
-    if (CheatManager.god_mode && CompareTag("Player")) return;
+        if (CheatManager.god_mode && CompareTag("Player")) return;
 
         current_health -= amount;
         if (current_health > 0) PlaySound(damage_sound_clip);        
         Debug.Log("Took damage");
         current_health = Mathf.Clamp(current_health, 0, max_health);
-        //MakeSemiTransparent();
 
         StartCoroutine(InvincibilityCoroutine());
         onDamaged?.Invoke(knockback_direction);
@@ -45,12 +44,22 @@ public class Health : MonoBehaviour
         }
     }
 
-    public void addHealth (int amount)
+    public void addHealth(int amount)
     {
         current_health += amount;
-        if (amount != 999) {
-        current_health = Mathf.Clamp(current_health, 0, max_health);
+
+        // do not clamp health while the player has god mode enabled
+        if (CheatManager.god_mode && CompareTag("Player"))
+        {
+            return;
         }
+
+        current_health = Mathf.Clamp(current_health, 0, max_health);
+    }
+
+    public void SetHealth(int amount)
+    {
+        current_health = Mathf.Clamp(amount, 0, max_health);
     }
 
     public void SetShielding(bool shielding)

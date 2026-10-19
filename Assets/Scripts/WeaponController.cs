@@ -5,12 +5,20 @@ using UnityEngine.InputSystem;
 public class WeaponController : MonoBehaviour
 {
     public MonoBehaviour standard_weapon;      // SwordAttack
-    public List<MonoBehaviour> alt_weapons;    // BowAttack and future alt weapons
+    public List<MonoBehaviour> alt_weapons;    // Bow, Bomb, Boomerang, Shield...
 
     int current_alt_index = 0;
 
+    // usable if truly unlocked (picked up) OR god mode is on
+    static bool Available(IWeapon w)
+    {
+        return w != null && (w.IsUnlocked || CheatManager.god_mode);
+    }
+
     void Update()
     {
+        EnsureValidSelection();
+
         if (Keyboard.current.xKey.wasPressedThisFrame)
         {
             (standard_weapon as IWeapon)?.Attack();
@@ -24,33 +32,37 @@ public class WeaponController : MonoBehaviour
         if (Keyboard.current.spaceKey.wasPressedThisFrame)
         {
             CycleAltWeapon();
-            Debug.Log(alt_weapons[current_alt_index] + "equipped");
+            IWeapon current = GetCurrentAltWeapon();
+            if (Available(current)) Debug.Log(alt_weapons[current_alt_index] + " equipped");
         }
+    }
+
+    // if god mode turns off while a cheat-only weapon is equipped, move off it
+    void EnsureValidSelection()
+    {
+        if (alt_weapons.Count <= 1) return;
+        if (!Available(GetCurrentAltWeapon())) CycleAltWeapon();
     }
 
     void AttackCurrentAlt()
     {
-        if (alt_weapons.Count == 0) return;
-
-        IWeapon weapon = alt_weapons[current_alt_index] as IWeapon;
-        if (weapon != null && weapon.IsUnlocked)
-        {
-            weapon.Attack();
-        }
+        IWeapon weapon = GetCurrentAltWeapon();
+        if (Available(weapon)) weapon.Attack();
     }
 
     void CycleAltWeapon()
     {
         if (alt_weapons.Count <= 1) return;
 
+        GetComponent<Health>()?.SetShielding(false);   // never stay invulnerable after switching
+
         int start_index = current_alt_index;
         do
         {
             current_alt_index = (current_alt_index + 1) % alt_weapons.Count;
-            IWeapon weapon = alt_weapons[current_alt_index] as IWeapon;
-            if (weapon != null && weapon.IsUnlocked) break;
+            if (Available(alt_weapons[current_alt_index] as IWeapon)) break;
         }
-        while (current_alt_index != start_index); // stop if loops through everything with nothing unlocked
+        while (current_alt_index != start_index);
     }
 
     public IWeapon GetCurrentAltWeapon()

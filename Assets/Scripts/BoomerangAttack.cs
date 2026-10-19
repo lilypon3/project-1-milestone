@@ -15,7 +15,7 @@ public class BoomerangAttack : MonoBehaviour, IWeapon
    
     public BoomerangBehavior boomerangPrefab;
     private BoomerangBehavior boomerang;
-    public bool IsUnlocked { get; set; } = true;
+    public bool IsUnlocked { get; set; } = false; // must be picked up in-game, or cheated in
     private GridMovement gridMovement;
     private float startingMoveSpeed;
     private StalfosMovement goriyaMovement;

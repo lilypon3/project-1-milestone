@@ -9,6 +9,7 @@ public class CheatManager : MonoBehaviour
 
     public Inventory inventory; 
     public Health health;
+    public Collector collector;
 
     public WeaponController weaponController;
 
@@ -21,6 +22,10 @@ public class CheatManager : MonoBehaviour
     new Vector2Int(5, 1),
     new Vector2Int(5, 2),
     new Vector2Int(6, 2)};
+
+    int saved_rupees;
+    int saved_keys;
+    int saved_bombs;
 
     void Awake() { god_mode = false; }
 
@@ -38,6 +43,31 @@ public class CheatManager : MonoBehaviour
             {
                 ApplyGodModeBenefits();
             }
+            else
+            {
+                if (inventory != null && collector != null)
+                {
+                    inventory.RestoreInventory(
+                        saved_rupees,
+                        saved_keys,
+                        saved_bombs,
+                        collector.rupeesCollectedDuringGodMode,
+                        collector.keysCollectedDuringGodMode,
+                        collector.bombsCollectedDuringGodMode
+                    );
+
+                    collector.rupeesCollectedDuringGodMode = 0;
+                    collector.keysCollectedDuringGodMode = 0;
+                    collector.bombsCollectedDuringGodMode = 0;
+                }
+
+                if (health != null)
+                {
+                    health.SetHealth(health.max_health);
+                }
+
+                Debug.Log("God mode disabled. Inventory and health restored.");
+            }
         }
 
         if (Keyboard.current.digit4Key.wasPressedThisFrame)
@@ -54,16 +84,20 @@ public class CheatManager : MonoBehaviour
     {
         if (inventory != null)
         {
+            // save the player's actual inventory before adding cheats
+            saved_rupees = inventory.GetRupees();
+            saved_keys = inventory.GetKeys();
+            saved_bombs = inventory.GetBombs();
+
+            // give the player cheat benefits
             inventory.AddRupee(999);
             inventory.AddKey(999);
-            health.addHealth(999);
             inventory.AddBomb(999);
         }
-        
-        if (weaponController != null)
+
+        if (health != null)
         {
-            IWeapon alt = weaponController.GetCurrentAltWeapon();
-            if (alt != null) alt.IsUnlocked = true; // unlocks bow for p1_milestone
+            health.addHealth(999);
         }
     }
 

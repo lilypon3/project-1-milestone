@@ -54,7 +54,13 @@ public class Inventory : MonoBehaviour
         return bombCount;
     }
 
-    
+    public void RestoreInventory(int rupees,int keys,int bombs,
+                                int extraRupees,int extraKeys,int extraBombs)
+    {
+        rupee_count = rupees + extraRupees;
+        key_count = keys + extraKeys;
+        bombCount = bombs + extraBombs;
+    }
 
 }
 
