@@ -6734,9 +6734,45 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3169557460601729162, guid: 84c9680705e5d4eeaa90bfabcce8b105, type: 3}
+      propertyPath: open_sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 3029a325bf8806840bf58dfaae51b817, type: 3}
+    - target: {fileID: 3169557460601729162, guid: 84c9680705e5d4eeaa90bfabcce8b105, type: 3}
       propertyPath: room_transition
       value: 
       objectReference: {fileID: 1192337001}
+    - target: {fileID: 3169557460601729162, guid: 84c9680705e5d4eeaa90bfabcce8b105, type: 3}
+      propertyPath: tile_sprites.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3169557460601729162, guid: 84c9680705e5d4eeaa90bfabcce8b105, type: 3}
+      propertyPath: door_renderers.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3169557460601729162, guid: 84c9680705e5d4eeaa90bfabcce8b105, type: 3}
+      propertyPath: 'door_renderers.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1709758230}
+    - target: {fileID: 3169557460601729162, guid: 84c9680705e5d4eeaa90bfabcce8b105, type: 3}
+      propertyPath: 'door_renderers.Array.data[1]'
+      value: 
+      objectReference: {fileID: 739607293}
+    - target: {fileID: 3169557460601729162, guid: 84c9680705e5d4eeaa90bfabcce8b105, type: 3}
+      propertyPath: tile_sprites.Array.data[0].open
+      value: 
+      objectReference: {fileID: -7486322232221505586, guid: 5ca873ccabeb5403fa6b9eab5621989e, type: 3}
+    - target: {fileID: 3169557460601729162, guid: 84c9680705e5d4eeaa90bfabcce8b105, type: 3}
+      propertyPath: tile_sprites.Array.data[1].open
+      value: 
+      objectReference: {fileID: -3795631081737811192, guid: 5ca873ccabeb5403fa6b9eab5621989e, type: 3}
+    - target: {fileID: 3169557460601729162, guid: 84c9680705e5d4eeaa90bfabcce8b105, type: 3}
+      propertyPath: tile_sprites.Array.data[0].locked
+      value: 
+      objectReference: {fileID: 2676951686893210948, guid: 5ca873ccabeb5403fa6b9eab5621989e, type: 3}
+    - target: {fileID: 3169557460601729162, guid: 84c9680705e5d4eeaa90bfabcce8b105, type: 3}
+      propertyPath: tile_sprites.Array.data[1].locked
+      value: 
+      objectReference: {fileID: 1190183501100362551, guid: 5ca873ccabeb5403fa6b9eab5621989e, type: 3}
     - target: {fileID: 4561624017995918503, guid: 84c9680705e5d4eeaa90bfabcce8b105, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.5099983
@@ -14817,7 +14853,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2456104955304564812, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_Name
-      value: Tile_WALL
+      value: locked right
       objectReference: {fileID: 0}
     - target: {fileID: 3927478676184684712, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_Sprite
@@ -33355,7 +33391,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2456104955304564812, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_Name
-      value: Tile_WALL
+      value: locked right
       objectReference: {fileID: 0}
     - target: {fileID: 3927478676184684712, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_Sprite
@@ -64330,13 +64366,41 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4582175595403668963, guid: bc0f8bd81cdf34853b708e94ee78352e, type: 3}
+      propertyPath: type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4582175595403668963, guid: bc0f8bd81cdf34853b708e94ee78352e, type: 3}
       propertyPath: direction
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4582175595403668963, guid: bc0f8bd81cdf34853b708e94ee78352e, type: 3}
+      propertyPath: close_sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 3029a325bf8806840bf58dfaae51b817, type: 3}
+    - target: {fileID: 4582175595403668963, guid: bc0f8bd81cdf34853b708e94ee78352e, type: 3}
       propertyPath: room_transition
       value: 
       objectReference: {fileID: 1192337001}
+    - target: {fileID: 4582175595403668963, guid: bc0f8bd81cdf34853b708e94ee78352e, type: 3}
+      propertyPath: tile_sprites.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4582175595403668963, guid: bc0f8bd81cdf34853b708e94ee78352e, type: 3}
+      propertyPath: door_renderers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4582175595403668963, guid: bc0f8bd81cdf34853b708e94ee78352e, type: 3}
+      propertyPath: 'door_renderers.Array.data[0]'
+      value: 
+      objectReference: {fileID: 428378004}
+    - target: {fileID: 4582175595403668963, guid: bc0f8bd81cdf34853b708e94ee78352e, type: 3}
+      propertyPath: tile_sprites.Array.data[0].open
+      value: 
+      objectReference: {fileID: 8548608813190635221, guid: 5ca873ccabeb5403fa6b9eab5621989e, type: 3}
+    - target: {fileID: 4582175595403668963, guid: bc0f8bd81cdf34853b708e94ee78352e, type: 3}
+      propertyPath: tile_sprites.Array.data[0].shut
+      value: 
+      objectReference: {fileID: -3796513056679945312, guid: 5ca873ccabeb5403fa6b9eab5621989e, type: 3}
     - target: {fileID: 7048476685839879569, guid: bc0f8bd81cdf34853b708e94ee78352e, type: 3}
       propertyPath: m_Name
       value: Right Door (1,2)
@@ -65085,6 +65149,11 @@ Transform:
 --- !u!4 &428378002 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8115149952237951590, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+  m_PrefabInstance: {fileID: 637002107}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &428378004 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3927478676184684712, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
   m_PrefabInstance: {fileID: 637002107}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &428630749 stripped
@@ -71024,9 +71093,33 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4582175595403668963, guid: bc0f8bd81cdf34853b708e94ee78352e, type: 3}
+      propertyPath: open_sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 3029a325bf8806840bf58dfaae51b817, type: 3}
+    - target: {fileID: 4582175595403668963, guid: bc0f8bd81cdf34853b708e94ee78352e, type: 3}
       propertyPath: room_transition
       value: 
       objectReference: {fileID: 1192337001}
+    - target: {fileID: 4582175595403668963, guid: bc0f8bd81cdf34853b708e94ee78352e, type: 3}
+      propertyPath: tile_sprites.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4582175595403668963, guid: bc0f8bd81cdf34853b708e94ee78352e, type: 3}
+      propertyPath: door_renderers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4582175595403668963, guid: bc0f8bd81cdf34853b708e94ee78352e, type: 3}
+      propertyPath: 'door_renderers.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1257046392}
+    - target: {fileID: 4582175595403668963, guid: bc0f8bd81cdf34853b708e94ee78352e, type: 3}
+      propertyPath: tile_sprites.Array.data[0].open
+      value: 
+      objectReference: {fileID: 8548608813190635221, guid: 5ca873ccabeb5403fa6b9eab5621989e, type: 3}
+    - target: {fileID: 4582175595403668963, guid: bc0f8bd81cdf34853b708e94ee78352e, type: 3}
+      propertyPath: tile_sprites.Array.data[0].locked
+      value: 
+      objectReference: {fileID: -6156567986236837295, guid: 5ca873ccabeb5403fa6b9eab5621989e, type: 3}
     - target: {fileID: 7048476685839879569, guid: bc0f8bd81cdf34853b708e94ee78352e, type: 3}
       propertyPath: m_Name
       value: Locked Right Door (2,3) (1)
@@ -82474,7 +82567,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2456104955304564812, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_Name
-      value: Tile_WALL
+      value: locked left
       objectReference: {fileID: 0}
     - target: {fileID: 3927478676184684712, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_Sprite
@@ -89488,6 +89581,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1419042910}
     m_Modifications:
     - target: {fileID: 4582175595403668963, guid: bc0f8bd81cdf34853b708e94ee78352e, type: 3}
+      propertyPath: use_fade
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4582175595403668963, guid: bc0f8bd81cdf34853b708e94ee78352e, type: 3}
       propertyPath: direction
       value: 0
       objectReference: {fileID: 0}
@@ -90049,7 +90146,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2456104955304564812, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_Name
-      value: Tile_WALL
+      value: door
       objectReference: {fileID: 0}
     - target: {fileID: 3927478676184684712, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_Sprite
@@ -96024,7 +96121,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2456104955304564812, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_Name
-      value: Tile_WALL
+      value: right door
       objectReference: {fileID: 0}
     - target: {fileID: 3927478676184684712, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_Sprite
@@ -112571,10 +112668,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3868424468143826012, guid: 10e7f569f54a6466685569499cd0ac3e, type: 3}
   m_PrefabInstance: {fileID: 739385835}
   m_PrefabAsset: {fileID: 0}
+--- !u!212 &739607293 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3927478676184684712, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+  m_PrefabInstance: {fileID: 219324112}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &739796628 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 768824358392885064, guid: 9a1680fc7dec84e97b69543d15581183, type: 3}
   m_PrefabInstance: {fileID: 1087165246}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &740029464 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3927478676184684712, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+  m_PrefabInstance: {fileID: 544194726}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &740437618
 PrefabInstance:
@@ -122553,6 +122660,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1309553410412726365, guid: bc0f8bd81cdf34853b708e94ee78352e, type: 3}
       propertyPath: m_EdgeRadius
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4582175595403668963, guid: bc0f8bd81cdf34853b708e94ee78352e, type: 3}
+      propertyPath: type
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4582175595403668963, guid: bc0f8bd81cdf34853b708e94ee78352e, type: 3}
@@ -144679,7 +144790,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2456104955304564812, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_Name
-      value: Tile_WALL
+      value: locked left
       objectReference: {fileID: 0}
     - target: {fileID: 3927478676184684712, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_Sprite
@@ -156285,6 +156396,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+--- !u!212 &1023186237 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3927478676184684712, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+  m_PrefabInstance: {fileID: 102640948}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1023226774
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -160988,7 +161104,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2456104955304564812, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_Name
-      value: Tile_WALL
+      value: locked left
       objectReference: {fileID: 0}
     - target: {fileID: 3927478676184684712, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_Sprite
@@ -161757,6 +161873,11 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 8115149952237951590, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
   m_PrefabInstance: {fileID: 1295927730}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &1068530205 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3927478676184684712, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+  m_PrefabInstance: {fileID: 1430191616}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1068720967
 PrefabInstance:
@@ -184592,9 +184713,45 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3169557460601729162, guid: 84c9680705e5d4eeaa90bfabcce8b105, type: 3}
+      propertyPath: open_sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 3029a325bf8806840bf58dfaae51b817, type: 3}
+    - target: {fileID: 3169557460601729162, guid: 84c9680705e5d4eeaa90bfabcce8b105, type: 3}
       propertyPath: room_transition
       value: 
       objectReference: {fileID: 1192337001}
+    - target: {fileID: 3169557460601729162, guid: 84c9680705e5d4eeaa90bfabcce8b105, type: 3}
+      propertyPath: tile_sprites.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3169557460601729162, guid: 84c9680705e5d4eeaa90bfabcce8b105, type: 3}
+      propertyPath: door_renderers.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3169557460601729162, guid: 84c9680705e5d4eeaa90bfabcce8b105, type: 3}
+      propertyPath: 'door_renderers.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1285658475}
+    - target: {fileID: 3169557460601729162, guid: 84c9680705e5d4eeaa90bfabcce8b105, type: 3}
+      propertyPath: 'door_renderers.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1068530205}
+    - target: {fileID: 3169557460601729162, guid: 84c9680705e5d4eeaa90bfabcce8b105, type: 3}
+      propertyPath: tile_sprites.Array.data[0].open
+      value: 
+      objectReference: {fileID: -7486322232221505586, guid: 5ca873ccabeb5403fa6b9eab5621989e, type: 3}
+    - target: {fileID: 3169557460601729162, guid: 84c9680705e5d4eeaa90bfabcce8b105, type: 3}
+      propertyPath: tile_sprites.Array.data[1].open
+      value: 
+      objectReference: {fileID: -3795631081737811192, guid: 5ca873ccabeb5403fa6b9eab5621989e, type: 3}
+    - target: {fileID: 3169557460601729162, guid: 84c9680705e5d4eeaa90bfabcce8b105, type: 3}
+      propertyPath: tile_sprites.Array.data[0].locked
+      value: 
+      objectReference: {fileID: 2676951686893210948, guid: 5ca873ccabeb5403fa6b9eab5621989e, type: 3}
+    - target: {fileID: 3169557460601729162, guid: 84c9680705e5d4eeaa90bfabcce8b105, type: 3}
+      propertyPath: tile_sprites.Array.data[1].locked
+      value: 
+      objectReference: {fileID: 1190183501100362551, guid: 5ca873ccabeb5403fa6b9eab5621989e, type: 3}
     - target: {fileID: 4561624017995918503, guid: 84c9680705e5d4eeaa90bfabcce8b105, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.540001
@@ -188855,7 +189012,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5978044527373150397, guid: 10e7f569f54a6466685569499cd0ac3e, type: 3}
       propertyPath: m_Name
-      value: Tile_NONE
+      value: locked door
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -188865,6 +189022,11 @@ PrefabInstance:
 --- !u!4 &1257046391 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3868424468143826012, guid: 10e7f569f54a6466685569499cd0ac3e, type: 3}
+  m_PrefabInstance: {fileID: 1257046390}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &1257046392 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 4038717677886251368, guid: 10e7f569f54a6466685569499cd0ac3e, type: 3}
   m_PrefabInstance: {fileID: 1257046390}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1257106426
@@ -193648,6 +193810,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+--- !u!212 &1285658475 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3927478676184684712, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+  m_PrefabInstance: {fileID: 954923293}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1286102152
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -217522,7 +217689,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2456104955304564812, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_Name
-      value: Tile_WALL
+      value: locked right
       objectReference: {fileID: 0}
     - target: {fileID: 3927478676184684712, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_Sprite
@@ -225149,7 +225316,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5978044527373150397, guid: 10e7f569f54a6466685569499cd0ac3e, type: 3}
       propertyPath: m_Name
-      value: Tile_NONE
+      value: specialdoor
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -225159,6 +225326,11 @@ PrefabInstance:
 --- !u!4 &1483126293 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3868424468143826012, guid: 10e7f569f54a6466685569499cd0ac3e, type: 3}
+  m_PrefabInstance: {fileID: 1483126292}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &1483126294 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 4038717677886251368, guid: 10e7f569f54a6466685569499cd0ac3e, type: 3}
   m_PrefabInstance: {fileID: 1483126292}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1483225971 stripped
@@ -236808,6 +236980,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 3868424468143826012, guid: 10e7f569f54a6466685569499cd0ac3e, type: 3}
   m_PrefabInstance: {fileID: 1560749818}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &1560864867 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3927478676184684712, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+  m_PrefabInstance: {fileID: 2047862375}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1561522194
 PrefabInstance:
@@ -258883,6 +259060,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+--- !u!212 &1709758230 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3927478676184684712, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+  m_PrefabInstance: {fileID: 1059055704}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1709766204 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3868424468143826012, guid: 10e7f569f54a6466685569499cd0ac3e, type: 3}
@@ -266868,9 +267050,33 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4582175595403668963, guid: bc0f8bd81cdf34853b708e94ee78352e, type: 3}
+      propertyPath: open_sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 3029a325bf8806840bf58dfaae51b817, type: 3}
+    - target: {fileID: 4582175595403668963, guid: bc0f8bd81cdf34853b708e94ee78352e, type: 3}
       propertyPath: room_transition
       value: 
       objectReference: {fileID: 1192337001}
+    - target: {fileID: 4582175595403668963, guid: bc0f8bd81cdf34853b708e94ee78352e, type: 3}
+      propertyPath: tile_sprites.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4582175595403668963, guid: bc0f8bd81cdf34853b708e94ee78352e, type: 3}
+      propertyPath: door_renderers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4582175595403668963, guid: bc0f8bd81cdf34853b708e94ee78352e, type: 3}
+      propertyPath: 'door_renderers.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1560864867}
+    - target: {fileID: 4582175595403668963, guid: bc0f8bd81cdf34853b708e94ee78352e, type: 3}
+      propertyPath: tile_sprites.Array.data[0].open
+      value: 
+      objectReference: {fileID: 4128549377107681131, guid: 5ca873ccabeb5403fa6b9eab5621989e, type: 3}
+    - target: {fileID: 4582175595403668963, guid: bc0f8bd81cdf34853b708e94ee78352e, type: 3}
+      propertyPath: tile_sprites.Array.data[0].locked
+      value: 
+      objectReference: {fileID: -168350733850073279, guid: 5ca873ccabeb5403fa6b9eab5621989e, type: 3}
     - target: {fileID: 7048476685839879569, guid: bc0f8bd81cdf34853b708e94ee78352e, type: 3}
       propertyPath: m_Name
       value: Locked Left Door (2,5)
@@ -273823,9 +274029,45 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3169557460601729162, guid: 84c9680705e5d4eeaa90bfabcce8b105, type: 3}
+      propertyPath: open_sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 3029a325bf8806840bf58dfaae51b817, type: 3}
+    - target: {fileID: 3169557460601729162, guid: 84c9680705e5d4eeaa90bfabcce8b105, type: 3}
       propertyPath: room_transition
       value: 
       objectReference: {fileID: 1192337001}
+    - target: {fileID: 3169557460601729162, guid: 84c9680705e5d4eeaa90bfabcce8b105, type: 3}
+      propertyPath: tile_sprites.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3169557460601729162, guid: 84c9680705e5d4eeaa90bfabcce8b105, type: 3}
+      propertyPath: door_renderers.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3169557460601729162, guid: 84c9680705e5d4eeaa90bfabcce8b105, type: 3}
+      propertyPath: 'door_renderers.Array.data[0]'
+      value: 
+      objectReference: {fileID: 740029464}
+    - target: {fileID: 3169557460601729162, guid: 84c9680705e5d4eeaa90bfabcce8b105, type: 3}
+      propertyPath: 'door_renderers.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1023186237}
+    - target: {fileID: 3169557460601729162, guid: 84c9680705e5d4eeaa90bfabcce8b105, type: 3}
+      propertyPath: tile_sprites.Array.data[0].open
+      value: 
+      objectReference: {fileID: -7486322232221505586, guid: 5ca873ccabeb5403fa6b9eab5621989e, type: 3}
+    - target: {fileID: 3169557460601729162, guid: 84c9680705e5d4eeaa90bfabcce8b105, type: 3}
+      propertyPath: tile_sprites.Array.data[1].open
+      value: 
+      objectReference: {fileID: -3795631081737811192, guid: 5ca873ccabeb5403fa6b9eab5621989e, type: 3}
+    - target: {fileID: 3169557460601729162, guid: 84c9680705e5d4eeaa90bfabcce8b105, type: 3}
+      propertyPath: tile_sprites.Array.data[0].locked
+      value: 
+      objectReference: {fileID: 2676951686893210948, guid: 5ca873ccabeb5403fa6b9eab5621989e, type: 3}
+    - target: {fileID: 3169557460601729162, guid: 84c9680705e5d4eeaa90bfabcce8b105, type: 3}
+      propertyPath: tile_sprites.Array.data[1].locked
+      value: 
+      objectReference: {fileID: 1190183501100362551, guid: 5ca873ccabeb5403fa6b9eab5621989e, type: 3}
     - target: {fileID: 4561624017995918503, guid: 84c9680705e5d4eeaa90bfabcce8b105, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.5
@@ -279586,6 +279828,11 @@ Transform:
 --- !u!4 &1848640941 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8115149952237951590, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+  m_PrefabInstance: {fileID: 1914094883}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &1848640943 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3927478676184684712, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
   m_PrefabInstance: {fileID: 1914094883}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1848661077
@@ -295624,6 +295871,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8115149952237951590, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
   m_PrefabInstance: {fileID: 63341858}
   m_PrefabAsset: {fileID: 0}
+--- !u!212 &1955928247 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3927478676184684712, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
+  m_PrefabInstance: {fileID: 63341858}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1956253093 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8115149952237951590, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
@@ -309032,7 +309284,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2456104955304564812, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_Name
-      value: Tile_WALL
+      value: locked door
       objectReference: {fileID: 0}
     - target: {fileID: 3927478676184684712, guid: b29af50b2fa8e485bbb5bf5482d0b248, type: 3}
       propertyPath: m_Sprite
@@ -321048,6 +321300,26 @@ PrefabInstance:
       propertyPath: room_transition
       value: 
       objectReference: {fileID: 1192337001}
+    - target: {fileID: 4582175595403668963, guid: bc0f8bd81cdf34853b708e94ee78352e, type: 3}
+      propertyPath: tile_sprites.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4582175595403668963, guid: bc0f8bd81cdf34853b708e94ee78352e, type: 3}
+      propertyPath: door_renderers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4582175595403668963, guid: bc0f8bd81cdf34853b708e94ee78352e, type: 3}
+      propertyPath: 'door_renderers.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1483126294}
+    - target: {fileID: 4582175595403668963, guid: bc0f8bd81cdf34853b708e94ee78352e, type: 3}
+      propertyPath: tile_sprites.Array.data[0].open
+      value: 
+      objectReference: {fileID: 4128549377107681131, guid: 5ca873ccabeb5403fa6b9eab5621989e, type: 3}
+    - target: {fileID: 4582175595403668963, guid: bc0f8bd81cdf34853b708e94ee78352e, type: 3}
+      propertyPath: tile_sprites.Array.data[0].sealed_door
+      value: 
+      objectReference: {fileID: -3796513056679945312, guid: 5ca873ccabeb5403fa6b9eab5621989e, type: 3}
     - target: {fileID: 7048476685839879569, guid: bc0f8bd81cdf34853b708e94ee78352e, type: 3}
       propertyPath: m_Name
       value: Special Left Door (1,3)
@@ -323788,9 +324060,45 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3169557460601729162, guid: 84c9680705e5d4eeaa90bfabcce8b105, type: 3}
+      propertyPath: open_sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 3029a325bf8806840bf58dfaae51b817, type: 3}
+    - target: {fileID: 3169557460601729162, guid: 84c9680705e5d4eeaa90bfabcce8b105, type: 3}
       propertyPath: room_transition
       value: 
       objectReference: {fileID: 1192337001}
+    - target: {fileID: 3169557460601729162, guid: 84c9680705e5d4eeaa90bfabcce8b105, type: 3}
+      propertyPath: tile_sprites.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3169557460601729162, guid: 84c9680705e5d4eeaa90bfabcce8b105, type: 3}
+      propertyPath: door_renderers.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3169557460601729162, guid: 84c9680705e5d4eeaa90bfabcce8b105, type: 3}
+      propertyPath: 'door_renderers.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1955928247}
+    - target: {fileID: 3169557460601729162, guid: 84c9680705e5d4eeaa90bfabcce8b105, type: 3}
+      propertyPath: 'door_renderers.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1848640943}
+    - target: {fileID: 3169557460601729162, guid: 84c9680705e5d4eeaa90bfabcce8b105, type: 3}
+      propertyPath: tile_sprites.Array.data[0].open
+      value: 
+      objectReference: {fileID: -7486322232221505586, guid: 5ca873ccabeb5403fa6b9eab5621989e, type: 3}
+    - target: {fileID: 3169557460601729162, guid: 84c9680705e5d4eeaa90bfabcce8b105, type: 3}
+      propertyPath: tile_sprites.Array.data[1].open
+      value: 
+      objectReference: {fileID: -3795631081737811192, guid: 5ca873ccabeb5403fa6b9eab5621989e, type: 3}
+    - target: {fileID: 3169557460601729162, guid: 84c9680705e5d4eeaa90bfabcce8b105, type: 3}
+      propertyPath: tile_sprites.Array.data[0].locked
+      value: 
+      objectReference: {fileID: 2676951686893210948, guid: 5ca873ccabeb5403fa6b9eab5621989e, type: 3}
+    - target: {fileID: 3169557460601729162, guid: 84c9680705e5d4eeaa90bfabcce8b105, type: 3}
+      propertyPath: tile_sprites.Array.data[1].locked
+      value: 
+      objectReference: {fileID: 1190183501100362551, guid: 5ca873ccabeb5403fa6b9eab5621989e, type: 3}
     - target: {fileID: 4561624017995918503, guid: 84c9680705e5d4eeaa90bfabcce8b105, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.5

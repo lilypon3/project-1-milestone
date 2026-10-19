@@ -139,7 +139,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Door
   direction: 3
-  is_locked: 0
+  type: 0
   room_transition: {fileID: 0}
   solid_blocker: {fileID: 151426703493421919}
-  trigger_collider: {fileID: 1309553410412726365}
+  door_renderers: []
+  tile_sprites: []
+  open_sound: {fileID: 0}
+  close_sound: {fileID: 0}
+  is_portal: 0
+  destination_room: {x: 0, y: 0}
+  player_spawn: {fileID: 0}
+  camera_point: {fileID: 0}
+  use_fade: 0
